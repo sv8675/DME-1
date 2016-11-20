@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routeInfo serviceName="com.att.afttest3.DataPartitionEnabler" serviceVersion="1.0.0" envContext="LAB" xmlns="http://aft.att.com/dme2/types">
+<dataPartitionKeyPath>/x/y/z</dataPartitionKeyPath>
+
+	<dataPartitions>
+   		<dataPartition name="SE" low="205977" high="205999"/>
+   		<dataPartition name="E" low="205444" high="205555"/>      
+   		<dataPartition name="ATL" low="404707" high="404707"/>
+   	</dataPartitions>
+<routeGroups>
+		<routeGroup name="datapartition">
+			<partner>DP</partner>
+			<route name="DEFAULT1">
+				<dataPartitionRef>SE</dataPartitionRef>
+				<stickySelectorKey>DPSEL</stickySelectorKey>
+				<routeOffer name="DP1" sequence="1" active="true"/>
+				<routeOffer name="STICKY1" sequence="1" active="true"/>
+			</route>
+			<route name="DEFAULT2">
+				<stickySelectorKey>DPSEL</stickySelectorKey>
+				<routeOffer name="DP_INVALID" sequence="1" active="true"/>
+			</route>
+			<route name="DEFAULT3">
+				<routeLocationSelector latitude="33.6" longitude="-86.6" maxDistance="200"/>
+				<routeOffer name="DP1_INVALID" sequence="1" active="true"/>
+			</route>
+			<route name="DEFAULT4">
+				<dataPartitionRef>E</dataPartitionRef>
+				<routeOffer name="DP1_INVALID" sequence="1" active="true"/>
+				<routeOffer name="STICKY1" sequence="1" active="true"/>
+			</route>
+			
+		</routeGroup>
+		<routeGroup name="datapartition1">
+			<partner>*</partner>
+			<route name="DEFAULT1">
+				<dataPartitionRef>SE</dataPartitionRef>
+				<stickySelectorKey>DPSEL</stickySelectorKey>
+				<routeOffer name="DP1" sequence="1" active="true"/>
+				<routeOffer name="STICKY1" sequence="1" active="true"/>
+			</route>
+		</routeGroup>
+	</routeGroups>
+</routeInfo>

@@ -1,0 +1,3 @@
+#
+#Wed Sep 21 11:43:35 CDT 2016
+135.204.107.65,8081=latitude\=33.3739;longitude\=-86.7983;lease\=1474475304974;protocol\=http;contextPath\=/service\=com.att.aft.ExchangeFailover/version\=1.0.0/envContext\=LAB/routeOffer\=FO1;routeOffer\=FO1

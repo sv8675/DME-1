@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+
+<routeInfo xmlns="http://aft.att.com/dme2/type">
+	<routeGroups>
+		<routeGroup name="DEFAULT">
+			<partner>*</partner>
+			<route name="DEFAULT">
+				<routeOffer name="DEFAULT" sequence="1" active="true"/>
+			</route>
+		</routeGroup>
+	</routeGroups>
+</routeInfo>

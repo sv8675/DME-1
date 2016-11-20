@@ -1,0 +1,17 @@
+Text file to be used for upload test with DME2
+<tns:RouteInfoMetaData xmlns:dme2="http://aft.att.com/dme2/types" xmlns:tns="http://scld.att.com/grm/RouteInfoMetaData/v1">
+<tns:RouteInfoTemplateGroup>
+<tns:defaultTemplateName>APPLE</tns:defaultTemplateName>
+<tns:routeInfoTemplate envContext="LAB" name="APPLE">
+<dme2:routeGroups>
+<dme2:routeGroup name="*">
+<dme2:partner>*</dme2:partner>
+<dme2:route name="DEFAULT">
+<dme2:routeOffer name="DEFAULT" sequence="1" active="true"/>
+</dme2:route>
+
+</dme2:routeGroup>
+</dme2:routeGroups>
+</tns:routeInfoTemplate>
+</tns:RouteInfoTemplateGroup>
+</tns:RouteInfoMetaData>

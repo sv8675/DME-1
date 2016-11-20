@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+
+<tns:descriptor version="1" xmlns:tns="http://aft.att.com/swm/descriptor" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://aft.att.com/swm/descriptor ../../xsd/AFTSWMDescriptor.xsd ">
+  <tns:platforms>
+    <tns:platform architecture="*" os="Linux" osVersions="*"/>
+    <tns:platform architecture="*" os="SunOS" osVersions="*"/>
+    <tns:platform architecture="*" os="AIX" osVersions="*"/>
+    <tns:platform architecture="*" os="HP-UX" osVersions="*"/>
+  </tns:platforms>
+  <tns:paths>
+  	<tns:path user="aft" group="aft" name="/opt/app/aft/dme2" permissions="755,644" recursive="true" type="d"/>
+    <tns:path user="aft" group="aft" name="/opt/app/aft/dme2/lib" permissions="755,644" recursive="true" type="d"/>
+    <tns:path user="aft" group="aft" name="/opt/app/aft/dme2/etc" permissions="755,644" recursive="true" type="d"/>
+    <tns:path user="aft" group="aft" name="/opt/app/aft/dme2/bin" permissions="755,755" recursive="true" type="d"/>
+  </tns:paths>
+  <tns:actions> 
+    <tns:action type="INIT">
+      <tns:proc user="aft" group="aft" stage="PRE"/>
+      <tns:proc user="aft" group="aft" stage="POST"/>
+    </tns:action>
+    <tns:action type="INST">
+      <tns:proc user="aft" group="aft" stage="PRE"/>
+      <tns:proc user="aft" group="aft" stage="POST"/>
+    </tns:action>
+    <tns:action type="DINST">
+      <tns:proc user="aft" group="aft" stage="PRE"/>
+      <tns:proc user="aft" group="aft" stage="POST"/>
+    </tns:action>
+    <tns:action type="FALL">
+      <tns:proc user="aft" group="aft" stage="PRE"/>
+      <tns:proc user="aft" group="aft" stage="POST"/>
+    </tns:action>
+  </tns:actions>
+</tns:descriptor>

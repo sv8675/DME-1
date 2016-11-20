@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<!--param name="ConversionPattern" value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" /-->
+			<!-- param name="ConversionPattern" value="%5p | %d{HH:mm:ss,SSS} | %35F:%4L | %X{track} | %m%n" /-->
+			<param name="ConversionPattern" value="%5p | %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.att.aft.dme2" 
+		additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="stdout"/>
+	</logger>
+	<logger name="com.hazelcast">
+		<level value="DEBUG" />
+		<appender-ref ref="stdout"/>
+	</logger>
+
+
+	<root>
+		<level value="DEBUG" />
+	</root>
+
+</log4j:configuration>

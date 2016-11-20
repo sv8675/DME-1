@@ -1,0 +1,10 @@
+/pom.xml.releaseBackup
+*/dme2-fs-registry/
+*/bin/
+*/target/
+*/.project
+*/.classpath
+*/.settings/
+*/logs/
+/target/
+/bin/

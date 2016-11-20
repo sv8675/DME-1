@@ -1,0 +1,135 @@
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+<xs:schema xmlns="http://grm.scld.att.com/policy" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://scld.att.com/grm/policy/v1"
+	xmlns:tns="http://scld.att.com/grm/policy/v1"
+	xmlns:grm_commontypes="http://scld.att.com/grm/types/v1"
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="1.0.0">
+	
+	<!-- =========================================================================
+											AT&T Proprietary (Internal Use Only)
+			Not for use or disclosure outside the AT&T companies except under written agreement
+						(c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and
+							the AT&T logo are trademarks of AT&T Intellectual Property.
+	======================================================================= -->
+	<!-- ================================================================
+	Description:  Schema for describing SOA Cloud Policy metadata
+	================================================================
+	Version Number: 1.0.0
+	================================================================
+	Change Log:  10/04/2011 - Initial Schema Creation
+	================================================================ -->
+	
+	<xs:import schemaLocation="grm_commontypes.xsd" namespace="http://scld.att.com/grm/types/v1" />
+	
+	<xs:element name="PolicyGroup" type="tns:PolicyGroup"/>
+			
+	<xs:complexType name="PolicyGroup">
+		<xs:sequence>
+			<xs:element name="subjectType" type="tns:SubjectType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="subject" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="policy" type="tns:Policy" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Policy">
+		<xs:sequence>
+			<xs:element name="policyName" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="version" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="routeOffer" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="enabled" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+			<xs:element name="criteriaType" type="tns:CriteriaType" minOccurs="1" maxOccurs="1" />
+			<!-- for criteria types tps, response time, user need to specify criteriaOperator and criteriaData. For criteriatype 
+			contRegistrationValidation, user needs to specify criteriaMetaData. -->
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="criteriaOperator" type="tns:Operator" />
+					<xs:element name="criteriaData" type="xs:string" />
+				</xs:sequence>
+				<xs:element name="criteriaMetaData" type="tns:CriteriaMetaData" />
+			</xs:choice>
+			
+			<xs:element name="action" type="tns:Action" minOccurs="0" maxOccurs="unbounded"/>
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Action">
+		<xs:sequence>
+			<xs:element name="actionType" type="tns:ActionType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="refScaleUpPolicyName" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="notificationInfo" type="grm_commontypes:NotificationInfo" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="scaleUpActionMetaData" type="tns:ScaleUpActionMetaData" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ScaleUpActionMetaData">
+		<xs:sequence>
+			<xs:element name="numberOfInstances" type="xs:int" minOccurs="1" maxOccurs="1" />
+			<xs:element name="nodeList" type="xs:string" minOccurs="1"  maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CriteriaMetaData">
+		<xs:sequence>
+			<xs:element name="criteriaRule" type="tns:CriteriaRule" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="CriteriaRule">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="type" type="tns:CriteriaRuleType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="operator" type="tns:Operator" minOccurs="1" maxOccurs="1" />
+			<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="Operator">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EQUALS"/>
+			<xs:enumeration value="LESS_THAN"/>
+			<xs:enumeration value="LESS_THAN_OR_EQUAL_TO"/>
+			<xs:enumeration value="GREATER_THAN"/>
+			<xs:enumeration value="GREATER_THAN_OR_EQUAL_TO"/>
+			<xs:enumeration value="MATCHES"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SubjectType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CONTAINER"/>
+			<xs:enumeration value="SERVICE"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ActionType" >
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NOTIFY"/>
+			<xs:enumeration value="SCALE_UP"/>
+			<xs:enumeration value="SCALE_DOWN"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CriteriaType" >
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OVERALL_TPS"/>
+			<xs:enumeration value="TPS_PER_INSTANCE"/>
+			<xs:enumeration value="AVERAGE_RESPONSE_TIME_PER_INSTANCE"/>
+			<xs:enumeration value="NINTYFIVE_PERCENTILE_AVERAGE_RESPONSE_TIME_PER_INSTANCE"/>
+			<xs:enumeration value="CONTAINER_REGISTRATION_VALIDATION"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CriteriaRuleType" >
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GENERAL"/>
+			<xs:enumeration value="RESOURCE_PROPS"/>
+		</xs:restriction>
+	</xs:simpleType>
+																	
+</xs:schema>

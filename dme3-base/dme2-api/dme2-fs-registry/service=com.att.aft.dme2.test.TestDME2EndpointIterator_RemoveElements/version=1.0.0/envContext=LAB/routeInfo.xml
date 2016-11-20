@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routeInfo serviceName="com.att.aft.dme2.test.TestDME2EndpointIterator_RemoveElements" serviceVersion="1.0.0" envContext="LAB" xmlns="http://aft.att.com/dme2/types">
+
+    <routeGroups> 
+        <routeGroup name="A1"> 
+            <partner>*</partner> 
+            <route name="A2"> 
+                <routeOffer name="PRIMARY" sequence="1" allowDynamicStickiness="false" active="true"/> 
+            </route> 
+	    <route name="B1"> 
+                <routeOffer name="SECONDARY" sequence="2" allowDynamicStickiness="false" active="true"/> 
+            </route> 
+        </routeGroup> 
+    </routeGroups> 
+</routeInfo>

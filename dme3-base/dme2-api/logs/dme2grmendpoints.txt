@@ -1,0 +1,3 @@
+https://hlth451.hydc.sbc.com:9427/GRMLWPService/v1
+https://jlth049.jadc.att.com:9427/GRMLWPService/v1
+https://jlth050.jadc.att.com:9427/GRMLWPService/v1

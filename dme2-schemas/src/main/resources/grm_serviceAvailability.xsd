@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+<xs:schema attributeFormDefault="unqualified" 
+elementFormDefault="qualified" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://scld.att.com/grm/tms/v1"
+	xmlns:tms="http://scld.att.com/grm/tms/v1" 
+>
+  <xs:element name="AvailabilityRulesType" type="tms:AvailabilityRulesType"/>
+  <xs:complexType name="notifyType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Id" minOccurs="1" maxOccurs="1"/>
+      <xs:element type="xs:string" name="email" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="heartbeatType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="count"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="connectionRatioType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:float" name="ratio"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="validateUsingType">
+    <xs:sequence>
+      <xs:element type="tms:heartbeatType" name="heartbeat" minOccurs="0" maxOccurs="1"/>
+      <xs:element type="tms:connectionRatioType" name="connectionRatio" minOccurs="0" maxOccurs="1"/>
+      <xs:element type="xs:string" name="registrationOnly" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="scheduleType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="day" use="required"/>
+        <xs:attribute type="xs:string" name="timeFrom" use="required"/>
+        <xs:attribute type="xs:string" name="timeTo" use="required"/>
+        <xs:attribute type="xs:int" name="instanceCount" use="required"/>
+        <xs:attribute type="xs:string" name="timeZone" use="optional"/>
+        <xs:attribute type="xs:string" name="dateFrom" use="optional"/>
+        <xs:attribute type="xs:string" name="dateEnd" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="overrideScheduleType">
+    <xs:sequence>
+      <xs:element type="tms:scheduleType" name="schedule" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RuleType">
+    <xs:sequence>
+      <xs:element name="geoLocations" type="tms:GeoLocationType" minOccurs="0"/>
+      <xs:element type="tms:notifyType" name="notify" minOccurs="1" maxOccurs="1"/>
+      <xs:element type="tms:validateUsingType" name="validateUsing" minOccurs="1" maxOccurs="1"/>
+      <xs:element type="xs:int" name="defaultInstances" minOccurs="1" maxOccurs="1"/>
+      <xs:element type="tms:overrideScheduleType" name="overrideSchedule" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="versionFilters" use="required"/>
+    <xs:attribute type="xs:string" name="routeOfferFilters" use="optional"/>
+    <xs:attribute type="xs:string" name="description" use="optional"/>
+    <xs:attribute type="xs:string" name="createdBy" use="optional"/>
+    <xs:attribute type="xs:string" name="modifiedBy" use="optional"/>
+    <xs:attribute type="xs:string" name="createTimeStamp" use="optional"/>
+    <xs:attribute type="xs:string" name="modifyTimeStamp" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="AvailabilityRulesType">
+    <xs:sequence>
+      <xs:element type="tms:RuleType" name="Rule" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="GeoLocationType">
+	<xs:sequence>
+		<xs:element name="geoLocation" type="xs:string" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,3187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->    
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	name="GRMService"
+	xmlns:grm_commontypes="http://scld.att.com/grm/types/v1"
+	xmlns:grm_wsdltypes="http://scld.att.com/grm/v1"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://scld.att.com/grm/v1"
+	xmlns:tns="http://scld.att.com/grm/v1">
+	
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://scld.att.com/grm/v1" 
+			elementFormDefault="qualified">
+			
+			<import schemaLocation="grm_commontypes.xsd" namespace="http://scld.att.com/grm/types/v1" />
+				<import schemaLocation="grm_wsdltypes.xsd" namespace="http://scld.att.com/grm/v1" />
+		</schema>
+	</types>
+	
+  	<!-- ###################################################################### -->
+  	<!-- ## FAULT MESSAGE - USED IN MULTIPLE OPERATIONS -->
+  	<!-- ###################################################################### -->
+  	<message name="GRMException">
+    	<part name="GRMException" element="grm_wsdltypes:GRMExceptionDetails" />
+  	</message>
+  	
+  	<!-- ###################################################################### -->
+    <!-- ## Client JVM Instance messages. -->
+    <!-- ###################################################################### -->
+    
+	<message name="registerClientJVMInstanceRequest">
+        <part name="registerClientJVMInstanceRequest" element="grm_wsdltypes:registerClientJVMInstanceRequest" />
+    </message>
+
+    <message name="registerClientJVMInstanceResponse">
+        <part name="registerClientJVMInstanceResponse" element="grm_wsdltypes:registerClientJVMInstanceResponse" />
+    </message>
+        
+    <message name="findClientJVMInstanceRequest">
+        <part name="findClientJVMInstanceRequest" element="grm_wsdltypes:findClientJVMInstanceRequest" />
+    </message>
+
+    <message name="findClientJVMInstanceResponse">
+        <part name="findClientJVMInstanceResponse" element="grm_wsdltypes:findClientJVMInstanceResponse" />
+    </message>
+  	  				
+  	<!-- ###################################################################### -->
+  	<!-- ## Container Request/Response messages. -->
+  	<!-- ###################################################################### -->  
+		
+	<message name="addContainerDefinitionRequest">
+		<part name="addContainerDefinitionRequest" element="grm_wsdltypes:addContainerDefinitionRequest"  />
+	</message>
+
+	<message name="addContainerDefinitionResponse">
+		<part name="addContainerDefinitionResponse" element="grm_wsdltypes:addContainerDefinitionResponse"  />
+	</message>
+
+	<message name="updateContainerDefinitionRequest">
+		<part name="updateContainerDefinitionRequest" element="grm_wsdltypes:updateContainerDefinitionRequest"  />
+	</message>
+
+	<message name="updateContainerDefinitionResponse">
+		<part name="updateContainerDefinitionResponse" element="grm_wsdltypes:updateContainerDefinitionResponse"  />
+	</message>
+
+	<message name="deleteContainerDefinitionRequest">
+		<part name="deleteContainerDefinitionRequest" element="grm_wsdltypes:deleteContainerDefinitionRequest"  />
+	</message>
+
+	<message name="deleteContainerDefinitionResponse">
+		<part name="deleteContainerDefinitionResponse" element="grm_wsdltypes:deleteContainerDefinitionResponse"  />
+	</message>
+
+	<message name="applyContainerVersionDefinitionAssociationRequest">
+		<part name="applyContainerVersionDefinitionAssociationRequest" element="grm_wsdltypes:applyContainerVersionDefinitionAssociationRequest"  />
+	</message>
+
+	<message name="applyContainerVersionDefinitionAssociationResponse">
+		<part name="applyContainerVersionDefinitionAssociationResponse" element="grm_wsdltypes:applyContainerVersionDefinitionAssociationResponse"  />
+	</message>
+	
+	<message name="findAllContainerDefinitionRequest">
+		<part name="findAllContainerDefinitionRequest" element="grm_wsdltypes:findAllContainerDefinitionRequest"  />
+	</message>
+
+	<message name="findAllContainerDefinitionResponse">
+		<part name="findAllContainerDefinitionResponse" element="grm_wsdltypes:findAllContainerDefinitionResponse"  />
+	</message>
+	
+	<message name="findContainerDefinitionRequest">
+		<part name="findContainerDefinitionRequest" element="grm_wsdltypes:findContainerDefinitionRequest"  />
+	</message>
+
+	<message name="findContainerDefinitionResponse">
+		<part name="findContainerDefinitionResponse" element="grm_wsdltypes:findContainerDefinitionResponse"  />
+	</message>
+
+	<message name="addContainerVersionDefinitionRequest">
+		<part name="addContainerVersionDefinitionRequest" element="grm_wsdltypes:addContainerVersionDefinitionRequest"  />
+	</message>
+
+	<message name="addContainerVersionDefinitionResponse">
+		<part name="addContainerVersionDefinitionResponse" element="grm_wsdltypes:addContainerVersionDefinitionResponse"  />
+	</message>
+
+	<message name="updateContainerVersionDefinitionRequest">
+		<part name="updateContainerVersionDefinitionRequest" element="grm_wsdltypes:updateContainerVersionDefinitionRequest"  />
+	</message>
+
+	<message name="updateContainerVersionDefinitionResponse">
+		<part name="updateContainerVersionDefinitionResponse" element="grm_wsdltypes:updateContainerVersionDefinitionResponse"  />
+	</message>
+
+	<message name="deleteContainerVersionDefinitionRequest">
+		<part name="deleteContainerVersionDefinitionRequest" element="grm_wsdltypes:deleteContainerVersionDefinitionRequest"  />
+	</message>
+
+	<message name="deleteContainerVersionDefinitionResponse">
+		<part name="deleteContainerVersionDefinitionResponse" element="grm_wsdltypes:deleteContainerVersionDefinitionResponse"  />
+	</message>
+
+	<message name="findContainerVersionDefinitionRequest">
+		<part name="findContainerVersionDefinitionRequest" element="grm_wsdltypes:findContainerVersionDefinitionRequest"  />
+	</message>
+
+	<message name="findContainerVersionDefinitionResponse">
+		<part name="findContainerVersionDefinitionResponse" element="grm_wsdltypes:findContainerVersionDefinitionResponse"  />
+	</message>
+
+	<message name="findContainerVersionDefinitionByCDRequest">
+		<part name="findContainerVersionDefinitionByCDRequest" element="grm_wsdltypes:findContainerVersionDefinitionByCDRequest"  />
+	</message>
+
+	<message name="findContainerVersionDefinitionByCDResponse">
+		<part name="findContainerVersionDefinitionByCDResponse" element="grm_wsdltypes:findContainerVersionDefinitionByCDResponse"  />
+	</message>
+	
+	<message name="findAllContainerVersionDefinitionRequest">
+		<part name="findAllContainerVersionDefinitionRequest" element="grm_wsdltypes:findAllContainerVersionDefinitionRequest"  />
+	</message>
+
+	<message name="findAllContainerVersionDefinitionResponse">
+		<part name="findAllContainerVersionDefinitionResponse" element="grm_wsdltypes:findAllContainerVersionDefinitionResponse"  />
+	</message>
+	
+	<message name="findContainerVersionDefinitionByRORequest">
+		<part name="findContainerVersionDefinitionByRORequest" element="grm_wsdltypes:findContainerVersionDefinitionByRORequest"  />
+	</message>
+
+	<message name="findContainerVersionDefinitionByROResponse">
+		<part name="findContainerVersionDefinitionByROResponse" element="grm_wsdltypes:findContainerVersionDefinitionByROResponse"  />
+	</message>
+	
+	<message name="addContainerInstanceRequest">
+		<part name="addContainerInstanceRequest" element="grm_wsdltypes:addContainerInstanceRequest"  />
+	</message>
+
+	<message name="addContainerInstanceResponse">
+		<part name="addContainerInstanceResponse" element="grm_wsdltypes:addContainerInstanceResponse"  />
+	</message>
+
+	<message name="updateContainerInstanceRequest">
+		<part name="updateContainerInstanceRequest" element="grm_wsdltypes:updateContainerInstanceRequest"  />
+	</message>
+
+	<message name="updateContainerInstanceResponse">
+		<part name="updateContainerInstanceResponse" element="grm_wsdltypes:updateContainerInstanceResponse"  />
+	</message>
+
+	<message name="deleteContainerInstanceRequest">
+		<part name="deleteContainerInstanceRequest" element="grm_wsdltypes:deleteContainerInstanceRequest"  />
+	</message>
+
+	<message name="deleteContainerInstanceResponse">
+		<part name="deleteContainerInstanceResponse" element="grm_wsdltypes:deleteContainerInstanceResponse"  />
+	</message>
+
+	<message name="findContainerInstanceRequest">
+		<part name="findContainerInstanceRequest" element="grm_wsdltypes:findContainerInstanceRequest"  />
+	</message>
+
+	<message name="findContainerInstanceResponse">
+		<part name="findContainerInstanceResponse" element="grm_wsdltypes:findContainerInstanceResponse"  />
+	</message>
+	
+	<message name="findContainerInstanceByCVDRequest">
+		<part name="findContainerInstanceByCVDRequest" element="grm_wsdltypes:findContainerInstanceByCVDRequest"  />
+	</message>
+
+	<message name="findContainerInstanceByCVDResponse">
+		<part name="findContainerInstanceByCVDResponse" element="grm_wsdltypes:findContainerInstanceByCVDResponse"  />
+	</message>	
+			
+	<message name="findContainerInstanceBySVDRequest">
+		<part name="findContainerInstanceBySVDRequest" element="grm_wsdltypes:findContainerInstanceBySVDRequest"  />
+	</message>
+
+	<message name="findContainerInstanceBySVDResponse">
+		<part name="findContainerInstanceBySVDResponse" element="grm_wsdltypes:findContainerInstanceBySVDResponse"  />
+	</message>	
+	
+	<message name="findContainerInstanceByLRMRequest">
+		<part name="findContainerInstanceByLRMRequest" element="grm_wsdltypes:findContainerInstanceByLRMRequest"  />
+	</message>
+
+	<message name="findContainerInstanceByLRMResponse">
+		<part name="findContainerInstanceByLRMResponse" element="grm_wsdltypes:findContainerInstanceByLRMResponse"  />
+	</message>	
+	
+	<message name="findContainerInstanceByRORequest">
+		<part name="findContainerInstanceByRORequest" element="grm_wsdltypes:findContainerInstanceByRORequest"  />
+	</message>
+
+	<message name="findContainerInstanceByROResponse">
+		<part name="findContainerInstanceByROResponse" element="grm_wsdltypes:findContainerInstanceByROResponse"  />
+	</message>
+		
+  	<!-- ###################################################################### -->
+  	<!-- ## LRM Request/Response messages. -->
+  	<!-- ###################################################################### -->  
+	<message name="addNodeRequest">
+		<part name="addNodeRequest" element="grm_wsdltypes:addNodeRequest"  />
+	</message>
+
+	<message name="addNodeResponse">
+		<part name="addNodeResponse" element="grm_wsdltypes:addNodeResponse"  />
+	</message>
+
+	<message name="updateNodeRequest">
+		<part name="updateNodeRequest" element="grm_wsdltypes:updateNodeRequest"  />
+	</message>
+
+	<message name="updateNodeResponse">
+		<part name="updateNodeResponse" element="grm_wsdltypes:updateNodeResponse"  />
+	</message>
+	
+	<message name="deleteNodeRequest">
+		<part name="deleteNodeRequest" element="grm_wsdltypes:deleteNodeRequest"  />
+	</message>
+
+	<message name="deleteNodeResponse">
+		<part name="deleteNodeResponse" element="grm_wsdltypes:deleteNodeResponse"  />
+	</message>
+	
+	<message name="findAllNodeRequest">
+		<part name="findAllNodeRequest" element="grm_wsdltypes:findAllNodeRequest"  />
+	</message>
+
+	<message name="findAllNodeResponse">
+		<part name="findAllNodeResponse" element="grm_wsdltypes:findAllNodeResponse"  />
+	</message>
+	
+	<message name="findNodeRequest">
+		<part name="findNodeRequest" element="grm_wsdltypes:findNodeRequest"  />
+	</message>
+
+	<message name="findNodeResponse">
+		<part name="findNodeResponse" element="grm_wsdltypes:findNodeResponse"  />
+	</message>
+
+	<message name="addLRMRequest">
+		<part name="addLRMRequest" element="grm_wsdltypes:addLRMRequest"  />
+	</message>
+
+	<message name="addLRMResponse">
+		<part name="addLRMResponse" element="grm_wsdltypes:addLRMResponse"  />
+	</message>
+
+	<message name="updateLRMRequest">
+		<part name="updateLRMRequest" element="grm_wsdltypes:updateLRMRequest"  />
+	</message>
+
+	<message name="updateLRMResponse">
+		<part name="updateLRMResponse" element="grm_wsdltypes:updateLRMResponse"  />
+	</message>
+
+	<message name="deleteLRMRequest">
+		<part name="deleteLRMRequest" element="grm_wsdltypes:deleteLRMRequest"  />
+	</message>
+
+	<message name="deleteLRMResponse">
+		<part name="deleteLRMResponse" element="grm_wsdltypes:deleteLRMResponse"  />
+	</message>
+
+	<message name="findLRMRequest">
+		<part name="findLRMRequest" element="grm_wsdltypes:findLRMRequest"  />
+	</message>
+
+	<message name="findLRMResponse">
+		<part name="findLRMResponse" element="grm_wsdltypes:findLRMResponse"  />
+	</message>
+	
+	<message name="findLRMByNodeRequest">
+		<part name="findLRMByNodeRequest" element="grm_wsdltypes:findLRMByNodeRequest"  />
+	</message>
+
+	<message name="findLRMByNodeResponse">
+		<part name="findLRMByNodeResponse" element="grm_wsdltypes:findLRMByNodeResponse"  />
+	</message>
+	
+	<message name="findAllLRMRequest">
+		<part name="findAllLRMRequest" element="grm_wsdltypes:findAllLRMRequest"  />
+	</message>
+
+	<message name="findAllLRMResponse">
+		<part name="findAllLRMResponse" element="grm_wsdltypes:findAllLRMResponse"  />
+	</message>
+	
+	<message name="findLRMBySVDRequest">
+		<part name="findLRMBySVDRequest" element="grm_wsdltypes:findLRMBySVDRequest"  />
+	</message>
+
+	<message name="findLRMBySVDResponse">
+		<part name="findLRMBySVDResponse" element="grm_wsdltypes:findLRMBySVDResponse"  />
+	</message>
+
+	<message name="findLRMByCVDRequest">
+		<part name="findLRMByCVDRequest" element="grm_wsdltypes:findLRMByCVDRequest"  />
+	</message>
+
+	<message name="findLRMByCVDResponse">
+		<part name="findLRMByCVDResponse" element="grm_wsdltypes:findLRMByCVDResponse"  />
+	</message>
+
+	<message name="addManagedResourceRequest">
+		<part name="addManagedResourceRequest" element="grm_wsdltypes:addManagedResourceRequest"  />
+	</message>
+
+	<message name="addManagedResourceResponse">
+		<part name="addManagedResourceResponse" element="grm_wsdltypes:addManagedResourceResponse"  />
+	</message>
+	
+	<message name="upgradeManagedResourceRequest">
+		<part name="upgradeManagedResourceRequest" element="grm_wsdltypes:upgradeManagedResourceRequest"  />
+	</message>
+
+	<message name="upgradeManagedResourceResponse">
+		<part name="upgradeManagedResourceResponse" element="grm_wsdltypes:upgradeManagedResourceResponse"  />
+	</message>
+
+	<message name="addRUpgradeRModifyManagedResourceRequest">
+		<part name="addRUpgradeRModifyManagedResourceRequest" element="grm_wsdltypes:addRUpgradeRModifyManagedResourceRequest"  />
+	</message>
+
+	<message name="addRUpgradeRModifyManagedResourceResponse">
+		<part name="addRUpgradeRModifyManagedResourceResponse" element="grm_wsdltypes:addRUpgradeRModifyManagedResourceResponse"  />
+	</message>
+			
+	<message name="updateManagedResourceRequest">
+		<part name="updateManagedResourceRequest" element="grm_wsdltypes:updateManagedResourceRequest"  />
+	</message>
+
+	<message name="updateManagedResourceResponse">
+		<part name="updateManagedResourceResponse" element="grm_wsdltypes:updateManagedResourceResponse"  />
+	</message>
+	
+	<message name="deleteManagedResourceRequest">
+		<part name="deleteManagedResourceRequest" element="grm_wsdltypes:deleteManagedResourceRequest"  />
+	</message>
+
+	<message name="deleteManagedResourceResponse">
+		<part name="deleteManagedResourceResponse" element="grm_wsdltypes:deleteManagedResourceResponse"  />
+	</message>	
+	
+	<message name="findManagedResourceRequest">
+		<part name="findManagedResourceRequest" element="grm_wsdltypes:findManagedResourceRequest"  />
+	</message>
+
+	<message name="findManagedResourceResponse">
+		<part name="findManagedResourceResponse" element="grm_wsdltypes:findManagedResourceResponse"  />
+	</message>
+		
+  	<!-- ###################################################################### -->
+  	<!-- ## Service Request/Response messages. -->
+  	<!-- ###################################################################### -->
+	<message name="addServiceDefinitionRequest">
+		<part name="addServiceDefinitionRequest" element="grm_wsdltypes:addServiceDefinitionRequest"  />
+	</message>
+
+	<message name="addServiceDefinitionResponse">
+		<part name="addServiceDefinitionResponse" element="grm_wsdltypes:addServiceDefinitionResponse"  />
+	</message>
+	
+	<message name="updateServiceDefinitionRequest">
+		<part name="updateServiceDefinitionRequest" element="grm_wsdltypes:updateServiceDefinitionRequest"  />
+	</message>		  	
+  	
+	<message name="updateServiceDefinitionResponse">
+		<part name="updateServiceDefinitionResponse" element="grm_wsdltypes:updateServiceDefinitionResponse"  />
+	</message>		
+	  	
+	<message name="deleteServiceDefinitionRequest">
+		<part name="deleteServiceDefinitionRequest" element="grm_wsdltypes:deleteServiceDefinitionRequest"  />
+	</message>	
+		  	
+	<message name="deleteServiceDefinitionResponse">
+		<part name="deleteServiceDefinitionResponse" element="grm_wsdltypes:deleteServiceDefinitionResponse"  />
+	</message>	
+		  	
+	<message name="findAllServiceDefinitionRequest">
+		<part name="findAllServiceDefinitionRequest" element="grm_wsdltypes:findAllServiceDefinitionRequest"  />
+	</message>	
+		  	
+	<message name="findAllServiceDefinitionResponse">
+		<part name="findAllServiceDefinitionResponse" element="grm_wsdltypes:findAllServiceDefinitionResponse"  />
+	</message>		
+	  	
+	<message name="findServiceDefinitionRequest">
+		<part name="findServiceDefinitionRequest" element="grm_wsdltypes:findServiceDefinitionRequest"  />
+	</message>		
+	  	
+	<message name="findServiceDefinitionResponse">
+		<part name="findServiceDefinitionResponse" element="grm_wsdltypes:findServiceDefinitionResponse"  />
+	</message>		  	
+	
+	<message name="addServiceVersionDefinitionRequest">
+		<part name="addServiceVersionDefinitionRequest" element="grm_wsdltypes:addServiceVersionDefinitionRequest"  />
+	</message>
+	<message name="addServiceVersionDefinitionResponse">
+		<part name="addServiceVersionDefinitionResponse" element="grm_wsdltypes:addServiceVersionDefinitionResponse"  />
+	</message>
+	<message name="updateServiceVersionDefinitionRequest">
+		<part name="updateServiceVersionDefinitionRequest" element="grm_wsdltypes:updateServiceVersionDefinitionRequest"  />
+	</message>
+	<message name="updateServiceVersionDefinitionResponse">
+		<part name="updateServiceVersionDefinitionResponse" element="grm_wsdltypes:updateServiceVersionDefinitionResponse"  />
+	</message>
+	<message name="deleteServiceVersionDefinitionRequest">
+		<part name="deleteServiceVersionDefinitionRequest" element="grm_wsdltypes:deleteServiceVersionDefinitionRequest"  />
+	</message>
+	<message name="deleteServiceVersionDefinitionResponse">
+		<part name="deleteServiceVersionDefinitionResponse" element="grm_wsdltypes:deleteServiceVersionDefinitionResponse"  />
+	</message>
+	<message name="applyServiceVersionDefinitionAssociationRequest">
+		<part name="applyServiceVersionDefinitionAssociationRequest" element="grm_wsdltypes:applyServiceVersionDefinitionAssociationRequest"  />
+	</message>
+	<message name="applyServiceVersionDefinitionAssociationResponse">
+		<part name="applyServiceVersionDefinitionAssociationResponse" element="grm_wsdltypes:applyServiceVersionDefinitionAssociationResponse"  />
+	</message>
+	<message name="findServiceVersionDefinitionRequest">
+		<part name="findServiceVersionDefinitionRequest" element="grm_wsdltypes:findServiceVersionDefinitionRequest"  />
+	</message>
+	<message name="findServiceVersionDefinitionResponse">
+		<part name="findServiceVersionDefinitionResponse" element="grm_wsdltypes:findServiceVersionDefinitionResponse"  />
+	</message>
+	<message name="findAllServiceVersionDefinitionRequest">
+		<part name="findAllServiceVersionDefinitionRequest" element="grm_wsdltypes:findAllServiceVersionDefinitionRequest"  />
+	</message>
+	<message name="findAllServiceVersionDefinitionResponse">
+		<part name="findAllServiceVersionDefinitionResponse" element="grm_wsdltypes:findAllServiceVersionDefinitionResponse"  />
+	</message>
+	<message name="findServiceVersionDefinitionBySDRequest">
+		<part name="findServiceVersionDefinitionBySDRequest" element="grm_wsdltypes:findServiceVersionDefinitionBySDRequest"  />
+	</message>
+	<message name="findServiceVersionDefinitionBySDResponse">
+		<part name="findServiceVersionDefinitionBySDResponse" element="grm_wsdltypes:findServiceVersionDefinitionBySDResponse"  />
+	</message>
+	
+	<message name="addServiceEndPointRequest">
+		<part name="addServiceEndPointRequest" element="grm_wsdltypes:addServiceEndPointRequest"  />
+	</message>		
+	<message name="addServiceEndPointResponse">
+		<part name="addServiceEndPointResponse" element="grm_wsdltypes:addServiceEndPointResponse"  />
+	</message>		
+	<message name="updateServiceEndPointRequest">
+		<part name="updateServiceEndPointRequest" element="grm_wsdltypes:updateServiceEndPointRequest"  />
+	</message>		
+	<message name="updateServiceEndPointResponse">
+		<part name="updateServiceEndPointResponse" element="grm_wsdltypes:updateServiceEndPointResponse"  />
+	</message>		
+	<message name="deleteServiceEndPointRequest">
+		<part name="deleteServiceEndPointRequest" element="grm_wsdltypes:deleteServiceEndPointRequest"  />
+	</message>		
+	<message name="deleteServiceEndPointResponse">
+		<part name="deleteServiceEndPointResponse" element="grm_wsdltypes:deleteServiceEndPointResponse"  />
+	</message>		
+	<message name="findServiceEndPointRequest">
+		<part name="findServiceEndPointRequest" element="grm_wsdltypes:findServiceEndPointRequest"  />
+	</message>		
+	<message name="findServiceEndPointResponse">
+		<part name="findServiceEndPointResponse" element="grm_wsdltypes:findServiceEndPointResponse"  />
+	</message>	
+	<message name="findServiceEndPointByCVDRequest">
+		<part name="findServiceEndPointByCVDRequest" element="grm_wsdltypes:findServiceEndPointByCVDRequest"  />
+	</message>		
+	<message name="findServiceEndPointByCVDResponse">
+		<part name="findServiceEndPointByCVDResponse" element="grm_wsdltypes:findServiceEndPointByCVDResponse"  />
+	</message>		
+	 <message name="findServiceEndPointBySEPStatusRequest">
+		<part name="findServiceEndPointBySEPStatusRequest" element="grm_wsdltypes:findServiceEndPointBySEPStatusRequest"  />
+	</message>		
+	<message name="findServiceEndPointBySEPStatusResponse">
+		<part name="findServiceEndPointBySEPStatusResponse" element="grm_wsdltypes:findServiceEndPointBySEPStatusResponse"  />
+	</message>
+	<message name="findServiceEndPointBySVDRequest">
+		<part name="findServiceEndPointBySVDRequest" element="grm_wsdltypes:findServiceEndPointBySVDRequest"  />
+	</message>		
+	<message name="findServiceEndPointBySVDResponse">
+		<part name="findServiceEndPointBySVDResponse" element="grm_wsdltypes:findServiceEndPointBySVDResponse"  />
+	</message>		
+	<message name="findServiceEndPointByCIRequest">
+		<part name="findServiceEndPointByCIRequest" element="grm_wsdltypes:findServiceEndPointByCIRequest"  />
+	</message>		
+	<message name="findServiceEndPointByCIResponse">
+		<part name="findServiceEndPointByCIResponse" element="grm_wsdltypes:findServiceEndPointByCIResponse"  />
+	</message>
+	<message name="findServiceEndPointByLRMRequest">
+		<part name="findServiceEndPointByLRMRequest" element="grm_wsdltypes:findServiceEndPointByLRMRequest"  />
+	</message>		
+	<message name="findServiceEndPointByLRMResponse">
+		<part name="findServiceEndPointByLRMResponse" element="grm_wsdltypes:findServiceEndPointByLRMResponse"  />
+	</message>	
+	<message name="findServiceEndPointByRORequest">
+		<part name="findServiceEndPointByRORequest" element="grm_wsdltypes:findServiceEndPointByRORequest"  />
+	</message>		
+	<message name="findServiceEndPointByROResponse">
+		<part name="findServiceEndPointByROResponse" element="grm_wsdltypes:findServiceEndPointByROResponse"  />
+	</message>	
+	
+	<message name="findRunningServiceEndPointRequest">
+		<part name="findRunningServiceEndPointRequest" element="grm_wsdltypes:findRunningServiceEndPointRequest"  />
+	</message>		
+	<message name="findRunningServiceEndPointResponse">
+		<part name="findRunningServiceEndPointResponse" element="grm_wsdltypes:findRunningServiceEndPointResponse"  />
+	</message>	
+	<!-- ###################################################################### -->
+	<!-- ## Route Offer request/response. -->
+	<!-- ###################################################################### -->
+	<message name="getAllRouteOffersRequest">
+		<part name="getAllRouteOffersRequest" element="grm_wsdltypes:getAllRouteOffersRequest"  />
+	</message>		
+	<message name="getAllRouteOffersResponse">
+		<part name="getAllRouteOffersResponse" element="grm_wsdltypes:getAllRouteOffersResponse"  />
+	</message>	
+	<message name="getRouteOffersRequest">
+		<part name="getRouteOffersRequest" element="grm_wsdltypes:getRouteOffersRequest"  />
+	</message>		
+	<message name="getRouteOffersResponse">
+		<part name="getRouteOffersResponse" element="grm_wsdltypes:getRouteOffersResponse"  />
+	</message>		
+	<message name="cloneContainerConfigRequest">
+		<part name="cloneContainerConfigRequest" element="grm_wsdltypes:cloneContainerConfigRequest"  />
+	</message>		
+	<message name="cloneContainerConfigResponse">
+		<part name="cloneContainerConfigResponse" element="grm_wsdltypes:cloneContainerConfigResponse"  />
+	</message>				
+  	<!-- ###################################################################### -->
+  	<!-- ## RouteInfo Request/Response messages. -->
+  	<!-- ###################################################################### -->  
+	<message name="getRouteInfoRequest">
+		<part name="getRouteInfoRequest" element="grm_wsdltypes:getRouteInfoRequest"  />
+	</message>	
+	<message name="getRouteInfoResponse">
+		<part name="getRouteInfoResponse" element="grm_wsdltypes:getRouteInfoResponse"  />
+	</message>	
+	<message name="lockRouteInfoForEditRequest">
+		<part name="lockRouteInfoForEditRequest" element="grm_wsdltypes:lockRouteInfoForEditRequest"  />
+	</message>	
+	<message name="lockRouteInfoForEditResponse">
+		<part name="lockRouteInfoForEditResponse" element="grm_wsdltypes:lockRouteInfoForEditResponse"  />
+	</message>	
+	<message name="validateRouteInfoRequest">
+		<part name="validateRouteInfoRequest" element="grm_wsdltypes:validateRouteInfoRequest"  />
+	</message>	
+	<message name="validateRouteInfoResponse">
+		<part name="validateRouteInfoResponse" element="grm_wsdltypes:validateRouteInfoResponse"  />
+	</message>	
+	
+	<message name="saveNReleaseRouteInfoRequest">
+		<part name="saveNReleaseRouteInfoRequest" element="grm_wsdltypes:saveNReleaseRouteInfoRequest"  />
+	</message>	
+	<message name="saveNReleaseRouteInfoResponse">
+		<part name="saveNReleaseRouteInfoResponse" element="grm_wsdltypes:saveNReleaseRouteInfoResponse"  />
+	</message>	
+	<message name="saveRouteInfoRequest">
+		<part name="saveRouteInfoRequest" element="grm_wsdltypes:saveRouteInfoRequest"  />
+	</message>	
+	<message name="saveRouteInfoResponse">
+		<part name="saveRouteInfoResponse" element="grm_wsdltypes:saveRouteInfoResponse"  />
+	</message>
+	<message name="saveAvailabilityRulesRequest">
+		<part name="saveAvailabilityRulesRequest" element="grm_wsdltypes:saveAvailabilityRulesRequest"  />
+	</message>
+		<message name="saveAvailabilityRulesResponse">
+		<part name="saveAvailabilityRulesResponse" element="grm_wsdltypes:saveAvailabilityRulesResponse"  />
+	</message>	
+	<message name="getAvailabilityRulesRequest">
+		<part name="getAvailabilityRulesRequest" element="grm_wsdltypes:getAvailabilityRulesRequest"  />
+	</message>
+		<message name="getAvailabilityRulesResponse">
+		<part name="getAvailabilityRulesResponse" element="grm_wsdltypes:getAvailabilityRulesResponse"  />
+	</message>
+	<message name="releaseRouteInfoRequest">
+		<part name="releaseRouteInfoRequest" element="grm_wsdltypes:releaseRouteInfoRequest"  />
+	</message>	
+	<message name="releaseRouteInfoResponse">
+		<part name="releaseRouteInfoResponse" element="grm_wsdltypes:releaseRouteInfoResponse"  />
+	</message>	
+  	<!-- ###################################################################### -->
+  	<!-- ## Action request/response messages. -->
+  	<!-- ###################################################################### -->	
+	<message name="findActionsRequest">
+		<part name="findActionsRequest" element="grm_wsdltypes:findActionsRequest"  />
+	</message>	
+	<message name="findActionsResponse">
+		<part name="findActionsResponse" element="grm_wsdltypes:findActionsResponse"  />
+	</message>		
+	  				  	
+  	<!-- ###################################################################### -->
+  	<!-- ## MMT function Request/Response messages. -->
+  	<!-- ###################################################################### -->  
+	<message name="checkLRMHeartBeatRequest">
+		<part name="checkLRMHeartBeatRequest" element="grm_wsdltypes:checkLRMHeartBeatRequest"  />
+	</message>
+	<message name="checkLRMHeartBeatResponse">
+		<part name="checkLRMHeartBeatResponse" element="grm_wsdltypes:checkLRMHeartBeatResponse"  />
+	</message>
+	<message name="checkLRMHeartBeatNowRequest">
+		<part name="checkLRMHeartBeatNowRequest" element="grm_wsdltypes:checkLRMHeartBeatNowRequest"  />
+	</message>
+	<message name="checkLRMHeartBeatNowResponse">
+		<part name="checkLRMHeartBeatNowResponse" element="grm_wsdltypes:checkLRMHeartBeatNowResponse"  />
+	</message>	
+	<message name="getLRMStatisticsRequest">
+		<part name="getLRMStatisticsRequest" element="grm_wsdltypes:getLRMStatisticsRequest"  />
+	</message>
+	<message name="getLRMStatisticsResponse">
+		<part name="getLRMStatisticsResponse" element="grm_wsdltypes:getLRMStatisticsResponse"  />
+	</message>
+	<message name="dumpLRMRequest">
+		<part name="dumpLRMRequest" element="grm_wsdltypes:dumpLRMRequest"  />
+	</message>
+	<message name="dumpLRMResponse">
+		<part name="dumpLRMResponse" element="grm_wsdltypes:dumpLRMResponse"  />
+	</message>
+  								  					
+	<message name="startContainerRequest">
+		<part name="startContainerRequest" element="grm_wsdltypes:startContainerRequest"  />
+	</message>
+
+	<message name="startContainerResponse">
+		<part name="startContainerResponse" element="grm_wsdltypes:startContainerResponse"  />
+	</message>
+	
+	<message name="shutdownContainerRequest">
+		<part name="shutdownContainerRequest" element="grm_wsdltypes:shutdownContainerRequest"  />
+	</message>
+	<message name="shutdownContainerResponse">
+		<part name="shutdownContainerResponse" element="grm_wsdltypes:shutdownContainerResponse"  />
+	</message>
+	
+	<message name="killContainerRequest">
+		<part name="killContainerRequest" element="grm_wsdltypes:killContainerRequest"  />
+	</message>
+	<message name="killContainerResponse">
+		<part name="killContainerResponse" element="grm_wsdltypes:killContainerResponse"  />
+	</message>	
+
+	<message name="checkContainerHeartBeatRequest">
+		<part name="checkContainerHeartBeatRequest" element="grm_wsdltypes:checkContainerHeartBeatRequest"  />
+	</message>
+	<message name="checkContainerHeartBeatResponse">
+		<part name="checkContainerHeartBeatResponse" element="grm_wsdltypes:checkContainerHeartBeatResponse"  />
+	</message>	
+	
+	<message name="checkContainerHeartBeatNowRequest">
+		<part name="checkContainerHeartBeatNowRequest" element="grm_wsdltypes:checkContainerHeartBeatNowRequest"  />
+	</message>
+	<message name="checkContainerHeartBeatNowResponse">
+		<part name="checkContainerHeartBeatNowResponse" element="grm_wsdltypes:checkContainerHeartBeatNowResponse"  />
+	</message>	
+		
+	<message name="getContainerStatisticsRequest">
+		<part name="getContainerStatisticsRequest" element="grm_wsdltypes:getContainerStatisticsRequest"  />
+	</message>
+	<message name="getContainerStatisticsResponse">
+		<part name="getContainerStatisticsResponse" element="grm_wsdltypes:getContainerStatisticsResponse"  />
+	</message>	
+	
+	<message name="getContainerDiagnosticsRequest">
+		<part name="getContainerDiagnosticsRequest" element="grm_wsdltypes:getContainerDiagnosticsRequest"  />
+	</message>
+	<message name="getContainerDiagnosticsResponse">
+		<part name="getContainerDiagnosticsResponse" element="grm_wsdltypes:getContainerDiagnosticsResponse"  />
+	</message>			
+	
+	<message name="dumpContainerRequest">
+		<part name="dumpContainerRequest" element="grm_wsdltypes:dumpContainerRequest"  />
+	</message>
+	<message name="dumpContainerResponse">
+		<part name="dumpContainerResponse" element="grm_wsdltypes:dumpContainerResponse"  />
+	</message>	
+
+	<message name="checkServiceHeartBeatRequest">
+		<part name="checkServiceHeartBeatRequest" element="grm_wsdltypes:checkServiceHeartBeatRequest"  />
+	</message>
+	<message name="checkServiceHeartBeatResponse">
+		<part name="checkServiceHeartBeatResponse" element="grm_wsdltypes:checkServiceHeartBeatResponse"  />
+	</message>
+
+	<message name="checkServiceHeartBeatNowRequest">
+		<part name="checkServiceHeartBeatNowRequest" element="grm_wsdltypes:checkServiceHeartBeatNowRequest"  />
+	</message>
+	<message name="checkServiceHeartBeatNowResponse">
+		<part name="checkServiceHeartBeatNowResponse" element="grm_wsdltypes:checkServiceHeartBeatNowResponse"  />
+	</message>
+			
+	<message name="getValidEnvRequest">
+		<part name="getValidEnvRequest" element="grm_wsdltypes:getValidEnvRequest"  />
+	</message>
+	<message name="getValidEnvResponse">
+		<part name="getValidEnvResponse" element="grm_wsdltypes:getValidEnvResponse"  />
+	</message>			
+	
+	<message name="addIPAddressRequest">
+		<part name="addIPAddressRequest" element="grm_wsdltypes:addIPAddressRequest"  />
+	</message>
+	<message name="addIPAddressResponse">
+		<part name="addIPAddressResponse" element="grm_wsdltypes:addIPAddressResponse"  />
+	</message>
+	<message name="deleteIPAddressRequest">
+		<part name="deleteIPAddressRequest" element="grm_wsdltypes:deleteIPAddressRequest"  />
+	</message>
+	<message name="deleteIPAddressResponse">
+		<part name="deleteIPAddressResponse" element="grm_wsdltypes:deleteIPAddressResponse"  />
+	</message>		
+	<message name="saveIPAddressRequest">
+		<part name="saveIPAddressRequest" element="grm_wsdltypes:saveIPAddressRequest"  />
+	</message>
+	<message name="saveIPAddressResponse">
+		<part name="saveIPAddressResponse" element="grm_wsdltypes:saveIPAddressResponse"  />
+	</message>		
+	<message name="getIPAddressRequest">
+		<part name="getIPAddressRequest" element="grm_wsdltypes:getIPAddressRequest"  />
+	</message>
+	<message name="getIPAddressResponse">
+		<part name="getIPAddressResponse" element="grm_wsdltypes:getIPAddressResponse"  />
+	</message>		
+			
+	<message name="getLoggingLevelRequest">
+		<part name="getLoggingLevelRequest" element="grm_wsdltypes:getLoggingLevelRequest"  />
+	</message>
+	<message name="getLoggingLevelResponse">
+		<part name="getLoggingLevelResponse" element="grm_wsdltypes:getLoggingLevelResponse"  />
+	</message>
+	<message name="updateLoggingLevelRequest">
+		<part name="updateLoggingLevelRequest" element="grm_wsdltypes:updateLoggingLevelRequest"  />
+	</message>
+	<message name="updateLoggingLevelResponse">
+		<part name="updateLoggingLevelResponse" element="grm_wsdltypes:updateLoggingLevelResponse"  />
+	</message>	
+	
+	<!-- ###################################################################### -->
+  	<!-- ## Profile function Request/Response messages. -->
+  	<!-- ###################################################################### -->
+	<message name="getProfilesRequest">
+		<part name="getProfilesRequest" element="grm_wsdltypes:getProfilesRequest"  />
+	</message>
+	<message name="getProfilesResponse">
+		<part name="getProfilesResponse" element="grm_wsdltypes:getProfilesResponse"  />
+	</message>
+	<message name="getUpdatableProfilesRequest">
+		<part name="getUpdatableProfilesRequest" element="grm_wsdltypes:getUpdatableProfilesRequest"  />
+	</message>
+	<message name="getUpdatableProfilesResponse">
+		<part name="getUpdatableProfilesResponse" element="grm_wsdltypes:getUpdatableProfilesResponse"  />
+	</message>
+	<message name="addProfileRequest">
+		<part name="addProfileRequest" element="grm_wsdltypes:addProfileRequest"  />
+	</message>
+	<message name="addProfileResponse">
+		<part name="addProfileResponse" element="grm_wsdltypes:addProfileResponse"  />
+	</message>	
+	<message name="updateProfileRequest">
+		<part name="updateProfileRequest" element="grm_wsdltypes:updateProfileRequest"  />
+	</message>
+	<message name="updateProfileResponse">
+		<part name="updateProfileResponse" element="grm_wsdltypes:updateProfileResponse"  />
+	</message>	
+	<message name="deleteProfileRequest">
+		<part name="deleteProfileRequest" element="grm_wsdltypes:deleteProfileRequest"  />
+	</message>
+	<message name="deleteProfileResponse">
+		<part name="deleteProfileResponse" element="grm_wsdltypes:deleteProfileResponse"  />
+	</message>	
+	<message name="getUsersAdminMgtGrpsRequest">
+		<part name="getUsersAdminMgtGrpsRequest" element="grm_wsdltypes:getUsersAdminMgtGrpsRequest"  />
+	</message>
+	<message name="getUsersAdminMgtGrpsResponse">
+		<part name="getUsersAdminMgtGrpsResponse" element="grm_wsdltypes:getUsersAdminMgtGrpsResponse"  />
+	</message>	
+	<message name="getNodeGroupsRequest">
+		<part name="getNodeGroupsRequest" element="grm_wsdltypes:getNodeGroupsRequest"  />
+	</message>
+	<message name="getNodeGroupsResponse">
+		<part name="getNodeGroupsResponse" element="grm_wsdltypes:getNodeGroupsResponse"  />
+	</message>	
+	<message name="getUserConfigurationRequest">
+		<part name="getUserConfigurationRequest" element="grm_wsdltypes:getUserConfigurationRequest"  />
+	</message>
+	<message name="getUserConfigurationResponse">
+		<part name="getUserConfigurationResponse" element="grm_wsdltypes:getUserConfigurationResponse"  />
+	</message>	
+	<message name="updateUserConfigurationRequest">
+		<part name="updateUserConfigurationRequest" element="grm_wsdltypes:updateUserConfigurationRequest"  />
+	</message>
+	<message name="updateUserConfigurationResponse">
+		<part name="updateUserConfigurationResponse" element="grm_wsdltypes:updateUserConfigurationResponse"  />
+	</message>	
+	
+  	  			
+	<message name="addPolicyRequest">
+		<part name="addPolicyRequest" element="grm_wsdltypes:addPolicyRequest"  />
+	</message>
+	<message name="addPolicyResponse">
+		<part name="addPolicyResponse" element="grm_wsdltypes:addPolicyResponse"  />
+	</message>	
+	<message name="updatePolicyRequest">
+		<part name="updatePolicyRequest" element="grm_wsdltypes:updatePolicyRequest"  />
+	</message>
+	<message name="updatePolicyResponse">
+		<part name="updatePolicyResponse" element="grm_wsdltypes:updatePolicyResponse"  />
+	</message>	
+	<message name="deletePolicyRequest">
+		<part name="deletePolicyRequest" element="grm_wsdltypes:deletePolicyRequest"  />
+	</message>
+	<message name="deletePolicyResponse">
+		<part name="deletePolicyResponse" element="grm_wsdltypes:deletePolicyResponse"  />
+	</message>	
+	<message name="getPoliciesRequest">
+		<part name="getPoliciesRequest" element="grm_wsdltypes:getPoliciesRequest"  />
+	</message>
+	<message name="getPoliciesResponse">
+		<part name="getPoliciesResponse" element="grm_wsdltypes:getPoliciesResponse"  />
+	</message>
+	
+	<message name="processResourceContentionRequest">
+		<part name="processResourceContentionRequest" element="grm_wsdltypes:processResourceContentionRequest"  />
+	</message>
+	<message name="processResourceContentionResponse">
+		<part name="processResourceContentionResponse" element="grm_wsdltypes:processResourceContentionResponse"  />
+	</message>
+	
+	<!-- ###################################################################### -->
+  	<!-- ## declare and monitor operations. -->
+  	<!-- ###################################################################### -->
+  	<message name="getGeoLocationsRequest">
+		<part name="getGeoLocationsRequest" element="grm_wsdltypes:getGeoLocationsRequest" />
+	</message>
+	<message name="getGeoLocationsResponse">
+		<part name="getGeoLocationsResponse" element="grm_wsdltypes:getGeoLocationsResponse"  />
+	</message>
+	<message name="getGeoLocationNodesRequest">
+		<part name="getGeoLocationNodesRequest" element="grm_wsdltypes:getGeoLocationNodesRequest" />
+	</message>
+	<message name="getGeoLocationNodesResponse">
+		<part name="getGeoLocationNodesResponse" element="grm_wsdltypes:getGeoLocationNodesResponse"  />
+	</message>
+	<message name="processScaleUpRequest">
+		<part name="processScaleUpRequest" element="grm_wsdltypes:processScaleUpRequest"  />
+	</message>
+	<message name="processScaleUpResponse">
+		<part name="processScaleUpResponse" element="grm_wsdltypes:processScaleUpResponse"  />
+	</message>  	  	
+	<message name="processScaleDownRequest">
+		<part name="processScaleDownRequest" element="grm_wsdltypes:processScaleDownRequest"  />
+	</message>
+	<message name="processScaleDownResponse">
+		<part name="processScaleDownResponse" element="grm_wsdltypes:processScaleDownResponse"  />
+	</message> 
+  	  	
+  	<!-- ###################################################################### -->
+  	<!-- ## Namespace operations. -->
+  	<!-- ###################################################################### -->
+  	<message name="addNamespaceRequest">
+		<part name="addNamespaceRequest" element="grm_wsdltypes:addNamespaceRequest" />
+	</message>
+	<message name="addNamespaceResponse">
+		<part name="addNamespaceResponse" element="grm_wsdltypes:addNamespaceResponse" />
+	</message>
+	<message name="getNamespacesRequest">
+		<part name="getNamespacesRequest" element="grm_wsdltypes:getNamespacesRequest" />
+	</message>
+	<message name="getNamespacesResponse">
+		<part name="getNamespacesResponse" element="grm_wsdltypes:getNamespacesResponse" />
+	</message>
+	<message name="deleteNamespaceRequest">
+		<part name="deleteNamespaceRequest" element="grm_wsdltypes:deleteNamespaceRequest" />
+	</message>
+	<message name="deleteNamespaceResponse">
+		<part name="deleteNamespaceResponse" element="grm_wsdltypes:deleteNamespaceResponse" />
+	</message>	
+	<message name="addEnvironmentRequest">
+		<part name="addEnvironmentRequest" element="grm_wsdltypes:addEnvironmentRequest" />
+	</message>
+	<message name="addEnvironmentResponse">
+		<part name="addEnvironmentResponse" element="grm_wsdltypes:addEnvironmentResponse" />
+	</message>
+	<message name="deleteEnvironmentRequest">
+		<part name="deleteEnvironmentRequest" element="grm_wsdltypes:deleteEnvironmentRequest" />
+	</message>
+	<message name="deleteEnvironmentResponse">
+		<part name="deleteEnvironmentResponse" element="grm_wsdltypes:deleteEnvironmentResponse" />
+	</message>	
+				
+  	<!-- ###################################################################### -->
+  	<!-- ## Port operations. -->
+  	<!-- ###################################################################### -->  	  			
+	<portType name="GRMPortType">
+	
+		<!-- ###################################################################### -->
+        <!-- ## Client JVM Instance Operations. -->
+        <!-- ###################################################################### -->
+		
+		<operation name="registerClientJVMInstance">
+            <input message="grm_wsdltypes:registerClientJVMInstanceRequest" />
+            <output message="grm_wsdltypes:registerClientJVMInstanceResponse" />
+            <fault name="GRMException" message="grm_wsdltypes:GRMException" />
+        </operation>
+                        
+        <operation name="findClientJVMInstance">
+            <input message="grm_wsdltypes:findClientJVMInstanceRequest" />
+            <output message="grm_wsdltypes:findClientJVMInstanceResponse" />
+            <fault name="GRMException" message="grm_wsdltypes:GRMException" />
+        </operation>
+        
+  		<!-- ###################################################################### -->
+  		<!-- ## Container Operations. -->
+  		<!-- ###################################################################### -->  	
+		<operation name="addContainerDefinition">
+			<input message="grm_wsdltypes:addContainerDefinitionRequest" />
+			<output message="grm_wsdltypes:addContainerDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="updateContainerDefinition">
+			<input message="grm_wsdltypes:updateContainerDefinitionRequest" />
+			<output message="grm_wsdltypes:updateContainerDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="deleteContainerDefinition">
+			<input message="grm_wsdltypes:deleteContainerDefinitionRequest" />
+			<output message="grm_wsdltypes:deleteContainerDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>			
+
+		<operation name="findAllContainerDefinition">
+			<input message="grm_wsdltypes:findAllContainerDefinitionRequest" />
+			<output message="grm_wsdltypes:findAllContainerDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+			
+		<operation name="findContainerDefinition">
+			<input message="grm_wsdltypes:findContainerDefinitionRequest" />
+			<output message="grm_wsdltypes:findContainerDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+			
+		<operation name="addContainerVersionDefinition">
+			<input message="grm_wsdltypes:addContainerVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:addContainerVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="updateContainerVersionDefinition">
+			<input message="grm_wsdltypes:updateContainerVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:updateContainerVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="deleteContainerVersionDefinition">
+			<input message="grm_wsdltypes:deleteContainerVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:deleteContainerVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>			
+		
+		<operation name="applyContainerVersionDefinitionAssociation">
+			<input message="grm_wsdltypes:applyContainerVersionDefinitionAssociationRequest" />
+			<output message="grm_wsdltypes:applyContainerVersionDefinitionAssociationResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+			
+		<operation name="findContainerVersionDefinition">
+			<input message="grm_wsdltypes:findContainerVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:findContainerVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>				
+
+		<operation name="findContainerVersionDefinitionByCD">
+			<input message="grm_wsdltypes:findContainerVersionDefinitionByCDRequest" />
+			<output message="grm_wsdltypes:findContainerVersionDefinitionByCDResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		
+		<operation name="findAllContainerVersionDefinitions">
+			<input message="grm_wsdltypes:findAllContainerVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:findAllContainerVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+
+		<operation name="findContainerVersionDefinitionByRO">
+			<input message="grm_wsdltypes:findContainerVersionDefinitionByRORequest" />
+			<output message="grm_wsdltypes:findContainerVersionDefinitionByROResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		
+		<operation name="addContainerInstance">
+			<input message="grm_wsdltypes:addContainerInstanceRequest" />
+			<output message="grm_wsdltypes:addContainerInstanceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="updateContainerInstance">
+			<input message="grm_wsdltypes:updateContainerInstanceRequest" />
+			<output message="grm_wsdltypes:updateContainerInstanceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="deleteContainerInstance">
+			<input message="grm_wsdltypes:deleteContainerInstanceRequest" />
+			<output message="grm_wsdltypes:deleteContainerInstanceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>			
+
+		<operation name="findContainerInstance">
+			<input message="grm_wsdltypes:findContainerInstanceRequest" />
+			<output message="grm_wsdltypes:findContainerInstanceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+			
+		<operation name="findContainerInstanceByCVD">
+			<input message="grm_wsdltypes:findContainerInstanceByCVDRequest" />
+			<output message="grm_wsdltypes:findContainerInstanceByCVDResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="findContainerInstanceBySVD">
+			<input message="grm_wsdltypes:findContainerInstanceBySVDRequest" />
+			<output message="grm_wsdltypes:findContainerInstanceBySVDResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+
+		<operation name="findContainerInstanceByLRM">
+			<input message="grm_wsdltypes:findContainerInstanceByLRMRequest" />
+			<output message="grm_wsdltypes:findContainerInstanceByLRMResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		
+		<operation name="findContainerInstanceByRO">
+			<input message="grm_wsdltypes:findContainerInstanceByRORequest" />
+			<output message="grm_wsdltypes:findContainerInstanceByROResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+  		<!-- ###################################################################### -->
+  		<!-- ## LRM Operations. -->
+  		<!-- ###################################################################### --> 
+		<operation name="addNode">
+			<input message="grm_wsdltypes:addNodeRequest" />
+			<output message="grm_wsdltypes:addNodeResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+
+		<operation name="updateNode">
+			<input message="grm_wsdltypes:updateNodeRequest" />
+			<output message="grm_wsdltypes:updateNodeResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		
+		<operation name="deleteNode">
+			<input message="grm_wsdltypes:deleteNodeRequest" />
+			<output message="grm_wsdltypes:deleteNodeResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>			
+	
+		<operation name="findNode">
+			<input message="grm_wsdltypes:findNodeRequest" />
+			<output message="grm_wsdltypes:findNodeResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+			
+		<operation name="findAllNodes">
+			<input message="grm_wsdltypes:findAllNodeRequest" />
+			<output message="grm_wsdltypes:findAllNodeResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		
+		<operation name="addLRM">
+			<input message="grm_wsdltypes:addLRMRequest" />
+			<output message="grm_wsdltypes:addLRMResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="updateLRM">
+			<input message="grm_wsdltypes:updateLRMRequest" />
+			<output message="grm_wsdltypes:updateLRMResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="deleteLRM">
+			<input message="grm_wsdltypes:deleteLRMRequest" />
+			<output message="grm_wsdltypes:deleteLRMResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>			
+
+		<operation name="findLRM">
+			<input message="grm_wsdltypes:findLRMRequest" />
+			<output message="grm_wsdltypes:findLRMResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		
+		<operation name="findLRMByNode">
+			<input message="grm_wsdltypes:findLRMByNodeRequest" />
+			<output message="grm_wsdltypes:findLRMByNodeResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+				
+		<operation name="findAllLRMs">
+			<input message="grm_wsdltypes:findAllLRMRequest" />
+			<output message="grm_wsdltypes:findAllLRMResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		
+		<operation name="findLRMBySVD">
+			<input message="grm_wsdltypes:findLRMBySVDRequest" />
+			<output message="grm_wsdltypes:findLRMBySVDResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+			
+		<operation name="findLRMByCVD">
+			<input message="grm_wsdltypes:findLRMByCVDRequest" />
+			<output message="grm_wsdltypes:findLRMByCVDResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="addManagedResource">
+			<input message="grm_wsdltypes:addManagedResourceRequest" />
+			<output message="grm_wsdltypes:addManagedResourceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+
+		<operation name="upgradeManagedResource">
+			<input message="grm_wsdltypes:upgradeManagedResourceRequest" />
+			<output message="grm_wsdltypes:upgradeManagedResourceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+
+		<operation name="addRUpgradeRModifyManagedResource">
+			<input message="grm_wsdltypes:addRUpgradeRModifyManagedResourceRequest" />
+			<output message="grm_wsdltypes:addRUpgradeRModifyManagedResourceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+				
+		<operation name="updateManagedResource">
+			<input message="grm_wsdltypes:updateManagedResourceRequest" />
+			<output message="grm_wsdltypes:updateManagedResourceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		
+		<operation name="deleteManagedResource">
+			<input message="grm_wsdltypes:deleteManagedResourceRequest" />
+			<output message="grm_wsdltypes:deleteManagedResourceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="findManagedResource">
+			<input message="grm_wsdltypes:findManagedResourceRequest" />
+			<output message="grm_wsdltypes:findManagedResourceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+							
+  		<!-- ###################################################################### -->
+  		<!-- ## Service Operations. -->
+  		<!-- ###################################################################### -->  	
+		<operation name="addServiceDefinition">
+			<input message="grm_wsdltypes:addServiceDefinitionRequest" />
+			<output message="grm_wsdltypes:addServiceDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="updateServiceDefinition">
+			<input message="grm_wsdltypes:updateServiceDefinitionRequest" />
+			<output message="grm_wsdltypes:updateServiceDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+
+		<operation name="deleteServiceDefinition">
+			<input message="grm_wsdltypes:deleteServiceDefinitionRequest" />
+			<output message="grm_wsdltypes:deleteServiceDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>			
+	
+		<operation name="findServiceDefinition">
+			<input message="grm_wsdltypes:findServiceDefinitionRequest" />
+			<output message="grm_wsdltypes:findServiceDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+							
+		<operation name="findAllServiceDefinitions">
+			<input message="grm_wsdltypes:findAllServiceDefinitionRequest" />
+			<output message="grm_wsdltypes:findAllServiceDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+
+		<operation name="addServiceVersionDefinition">
+			<input message="grm_wsdltypes:addServiceVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:addServiceVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="updateServiceVersionDefinition">
+			<input message="grm_wsdltypes:updateServiceVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:updateServiceVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="deleteServiceVersionDefinition">
+			<input message="grm_wsdltypes:deleteServiceVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:deleteServiceVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="applyServiceVersionDefinitionAssociation">
+			<input message="grm_wsdltypes:applyServiceVersionDefinitionAssociationRequest" />
+			<output message="grm_wsdltypes:applyServiceVersionDefinitionAssociationResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="findServiceVersionDefinition">
+			<input message="grm_wsdltypes:findServiceVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:findServiceVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="findAllServiceVersionDefinition">
+			<input message="grm_wsdltypes:findAllServiceVersionDefinitionRequest" />
+			<output message="grm_wsdltypes:findAllServiceVersionDefinitionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="findServiceVersionDefinitionBySD">
+			<input message="grm_wsdltypes:findServiceVersionDefinitionBySDRequest" />
+			<output message="grm_wsdltypes:findServiceVersionDefinitionBySDResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+		<operation name="addServiceEndPoint">
+			<input message="grm_wsdltypes:addServiceEndPointRequest" />
+			<output message="grm_wsdltypes:addServiceEndPointResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="updateServiceEndPoint">
+			<input message="grm_wsdltypes:updateServiceEndPointRequest" />
+			<output message="grm_wsdltypes:updateServiceEndPointResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="deleteServiceEndPoint">
+			<input message="grm_wsdltypes:deleteServiceEndPointRequest" />
+			<output message="grm_wsdltypes:deleteServiceEndPointResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="findServiceEndPoint">
+			<input message="grm_wsdltypes:findServiceEndPointRequest" />
+			<output message="grm_wsdltypes:findServiceEndPointResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+		<operation name="findServiceEndPointByCVD">
+			<input message="grm_wsdltypes:findServiceEndPointByCVDRequest" />
+			<output message="grm_wsdltypes:findServiceEndPointByCVDResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="findServiceEndPointBySEPStatus">
+			<input message="grm_wsdltypes:findServiceEndPointBySEPStatusRequest" />
+			<output message="grm_wsdltypes:findServiceEndPointBySEPStatusResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="findServiceEndPointBySVD">
+			<input message="grm_wsdltypes:findServiceEndPointBySVDRequest" />
+			<output message="grm_wsdltypes:findServiceEndPointBySVDResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="findServiceEndPointByCI">
+			<input message="grm_wsdltypes:findServiceEndPointByCIRequest" />
+			<output message="grm_wsdltypes:findServiceEndPointByCIResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="findServiceEndPointByLRM">
+			<input message="grm_wsdltypes:findServiceEndPointByLRMRequest" />
+			<output message="grm_wsdltypes:findServiceEndPointByLRMResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="findServiceEndPointByRO">
+			<input message="grm_wsdltypes:findServiceEndPointByRORequest" />
+			<output message="grm_wsdltypes:findServiceEndPointByROResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="findRunningServiceEndPoint">
+			<input message="grm_wsdltypes:findRunningServiceEndPointRequest" />
+			<output message="grm_wsdltypes:findRunningServiceEndPointResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>			
+  		<!-- ###################################################################### -->
+  		<!-- ## RouteOffer Operations. -->
+  		<!-- ###################################################################### -->  		
+		<operation name="getAllRouteOffers">
+			<input message="grm_wsdltypes:getAllRouteOffersRequest" />
+			<output message="grm_wsdltypes:getAllRouteOffersResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+		<operation name="getRouteOffers">
+			<input message="grm_wsdltypes:getRouteOffersRequest" />
+			<output message="grm_wsdltypes:getRouteOffersResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>					
+		<operation name="cloneContainerConfig">
+			<input message="grm_wsdltypes:cloneContainerConfigRequest" />
+			<output message="grm_wsdltypes:cloneContainerConfigResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+								
+  		<!-- ###################################################################### -->
+  		<!-- ## RouteInfo Operations. -->
+  		<!-- ###################################################################### -->  		
+		<operation name="getRouteInfo">
+			<input message="grm_wsdltypes:getRouteInfoRequest" />
+			<output message="grm_wsdltypes:getRouteInfoResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>				
+		<operation name="lockRouteInfoForEdit">
+			<input message="grm_wsdltypes:lockRouteInfoForEditRequest" />
+			<output message="grm_wsdltypes:lockRouteInfoForEditResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="validateRouteInfo">
+			<input message="grm_wsdltypes:validateRouteInfoRequest" />
+			<output message="grm_wsdltypes:validateRouteInfoResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+		<operation name="saveNReleaseRouteInfo">
+			<input message="grm_wsdltypes:saveNReleaseRouteInfoRequest" />
+			<output message="grm_wsdltypes:saveNReleaseRouteInfoResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="saveRouteInfo">
+			<input message="grm_wsdltypes:saveRouteInfoRequest" />
+			<output message="grm_wsdltypes:saveRouteInfoResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="releaseRouteInfo">
+			<input message="grm_wsdltypes:releaseRouteInfoRequest" />
+			<output message="grm_wsdltypes:releaseRouteInfoResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="saveAvailabilityRules">
+			<input message="grm_wsdltypes:saveAvailabilityRulesRequest" />
+			<output message="grm_wsdltypes:saveAvailabilityRulesResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="getAvailabilityRules">
+			<input message="grm_wsdltypes:getAvailabilityRulesRequest" />
+			<output message="grm_wsdltypes:getAvailabilityRulesResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+  		<!-- ###################################################################### -->
+  		<!-- ## Action related Operations. -->
+  		<!-- ###################################################################### -->  					
+		<operation name="findActions">
+			<input message="grm_wsdltypes:findActionsRequest" />
+			<output message="grm_wsdltypes:findActionsResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+															
+  		<!-- ###################################################################### -->
+  		<!-- ## MMT Operations. -->
+  		<!-- ###################################################################### -->  	
+		<operation name="checkLRMHeartBeat">
+			<input message="grm_wsdltypes:checkLRMHeartBeatRequest" />
+			<output message="grm_wsdltypes:checkLRMHeartBeatResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="checkLRMHeartBeatNow">
+			<input message="grm_wsdltypes:checkLRMHeartBeatNowRequest" />
+			<output message="grm_wsdltypes:checkLRMHeartBeatNowResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+		<operation name="getLRMStatistics">
+			<input message="grm_wsdltypes:getLRMStatisticsRequest" />
+			<output message="grm_wsdltypes:getLRMStatisticsResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="dumpLRM">
+			<input message="grm_wsdltypes:dumpLRMRequest" />
+			<output message="grm_wsdltypes:dumpLRMResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		  			
+		<operation name="startContainer">
+			<input message="grm_wsdltypes:startContainerRequest" />
+			<output message="grm_wsdltypes:startContainerResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="shutdownContainer">
+			<input message="grm_wsdltypes:shutdownContainerRequest" />
+			<output message="grm_wsdltypes:shutdownContainerResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="killContainer">
+			<input message="grm_wsdltypes:killContainerRequest" />
+			<output message="grm_wsdltypes:killContainerResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+		<operation name="checkContainerHeartBeat">
+			<input message="grm_wsdltypes:checkContainerHeartBeatRequest" />
+			<output message="grm_wsdltypes:checkContainerHeartBeatResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="checkContainerHeartBeatNow">
+			<input message="grm_wsdltypes:checkContainerHeartBeatNowRequest" />
+			<output message="grm_wsdltypes:checkContainerHeartBeatNowResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>		
+		<operation name="getContainerStatistics">
+			<input message="grm_wsdltypes:getContainerStatisticsRequest" />
+			<output message="grm_wsdltypes:getContainerStatisticsResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="getContainerDiagnostics">
+			<input message="grm_wsdltypes:getContainerDiagnosticsRequest" />
+			<output message="grm_wsdltypes:getContainerDiagnosticsResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="dumpContainer">
+			<input message="grm_wsdltypes:dumpContainerRequest" />
+			<output message="grm_wsdltypes:dumpContainerResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="checkServiceHeartBeat">
+			<input message="grm_wsdltypes:checkServiceHeartBeatRequest" />
+			<output message="grm_wsdltypes:checkServiceHeartBeatResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="checkServiceHeartBeatNow">
+			<input message="grm_wsdltypes:checkServiceHeartBeatNowRequest" />
+			<output message="grm_wsdltypes:checkServiceHeartBeatNowResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>					
+		<operation name="getValidEnv">
+			<input message="grm_wsdltypes:getValidEnvRequest" />
+			<output message="grm_wsdltypes:getValidEnvResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		
+		<operation name="addIPAddress">
+			<input message="grm_wsdltypes:addIPAddressRequest" />
+			<output message="grm_wsdltypes:addIPAddressResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="deleteIPAddress">
+			<input message="grm_wsdltypes:deleteIPAddressRequest" />
+			<output message="grm_wsdltypes:deleteIPAddressResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>				
+		<operation name="saveIPAddress">
+			<input message="grm_wsdltypes:saveIPAddressRequest" />
+			<output message="grm_wsdltypes:saveIPAddressResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="getIPAddress">
+			<input message="grm_wsdltypes:getIPAddressRequest" />
+			<output message="grm_wsdltypes:getIPAddressResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		
+		<operation name="getLoggingLevel">
+			<input message="grm_wsdltypes:getLoggingLevelRequest" />
+			<output message="grm_wsdltypes:getLoggingLevelResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="updateLoggingLevel">
+			<input message="grm_wsdltypes:updateLoggingLevelRequest" />
+			<output message="grm_wsdltypes:updateLoggingLevelResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+					
+		<!-- ###################################################################### -->
+  		<!-- ## Profile Operations. -->
+  		<!-- ###################################################################### -->  	
+  		<operation name="getProfiles">
+			<input message="grm_wsdltypes:getProfilesRequest" />
+			<output message="grm_wsdltypes:getProfilesResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="getUpdatableProfiles">
+			<input message="grm_wsdltypes:getUpdatableProfilesRequest" />
+			<output message="grm_wsdltypes:getUpdatableProfilesResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="addProfile">
+			<input message="grm_wsdltypes:addProfileRequest" />
+			<output message="grm_wsdltypes:addProfileResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="updateProfile">
+			<input message="grm_wsdltypes:updateProfileRequest" />
+			<output message="grm_wsdltypes:updateProfileResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="deleteProfile">
+			<input message="grm_wsdltypes:deleteProfileRequest" />
+			<output message="grm_wsdltypes:deleteProfileResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="getUsersAdminMgtGrps">
+			<input message="grm_wsdltypes:getUsersAdminMgtGrpsRequest" />
+			<output message="grm_wsdltypes:getUsersAdminMgtGrpsResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="getNodeGroups">
+			<input message="grm_wsdltypes:getNodeGroupsRequest" />
+			<output message="grm_wsdltypes:getNodeGroupsResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="getUserConfiguration">
+			<input message="grm_wsdltypes:getUserConfigurationRequest" />
+			<output message="grm_wsdltypes:getUserConfigurationResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="updateUserConfiguration">
+			<input message="grm_wsdltypes:updateUserConfigurationRequest" />
+			<output message="grm_wsdltypes:updateUserConfigurationResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		
+		<!-- ###################################################################### -->
+  		<!-- ## Declare and Monitor Operations. -->
+  		<!-- ###################################################################### -->
+  		
+  		<operation name="getGeoLocations">
+			<input message="grm_wsdltypes:getGeoLocationsRequest" />
+			<output message="grm_wsdltypes:getGeoLocationsResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>  
+		<operation name="getGeoLocationNodes">
+			<input message="grm_wsdltypes:getGeoLocationNodesRequest" />
+			<output message="grm_wsdltypes:getGeoLocationNodesResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>  
+		
+		<!-- ###################################################################### -->
+  		<!-- ## Namespace Operations. -->
+  		<!-- ###################################################################### -->
+  		
+  		<operation name="addNamespace">
+			<input message="grm_wsdltypes:addNamespaceRequest" />
+			<output message="grm_wsdltypes:addNamespaceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>  
+		<operation name="getNamespaces">
+			<input message="grm_wsdltypes:getNamespacesRequest" />
+			<output message="grm_wsdltypes:getNamespacesResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>  
+		<operation name="deleteNamespace">
+			<input message="grm_wsdltypes:deleteNamespaceRequest" />
+			<output message="grm_wsdltypes:deleteNamespaceResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>  
+		<operation name="addEnvironment">
+			<input message="grm_wsdltypes:addEnvironmentRequest" />
+			<output message="grm_wsdltypes:addEnvironmentResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>  
+		<operation name="deleteEnvironment">
+			<input message="grm_wsdltypes:deleteEnvironmentRequest" />
+			<output message="grm_wsdltypes:deleteEnvironmentResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>  
+  		
+  		<!-- ###################################################################### -->
+  		<!-- ## Policy Operations. -->
+  		<!-- ###################################################################### -->
+
+		<operation name="addPolicy">
+			<input message="grm_wsdltypes:addPolicyRequest" />
+			<output message="grm_wsdltypes:addPolicyResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="updatePolicy">
+			<input message="grm_wsdltypes:updatePolicyRequest" />
+			<output message="grm_wsdltypes:updatePolicyResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="deletePolicy">
+			<input message="grm_wsdltypes:deletePolicyRequest" />
+			<output message="grm_wsdltypes:deletePolicyResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="getPolicies">
+			<input message="grm_wsdltypes:getPoliciesRequest" />
+			<output message="grm_wsdltypes:getPoliciesResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>  
+		<operation name="processResourceContention">
+			<input message="grm_wsdltypes:processResourceContentionRequest" />
+			<output message="grm_wsdltypes:processResourceContentionResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>
+		<operation name="processScaleUp">
+			<input message="grm_wsdltypes:processScaleUpRequest" />
+			<output message="grm_wsdltypes:processScaleUpResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	
+		<operation name="processScaleDown">
+			<input message="grm_wsdltypes:processScaleDownRequest" />
+			<output message="grm_wsdltypes:processScaleDownResponse" />
+			<fault name="GRMException" message="grm_wsdltypes:GRMException" />
+		</operation>	 																
+	</portType>
+	
+  	<!-- ###################################################################### -->
+  	<!-- ## SOAP Binding. -->
+  	<!-- ###################################################################### -->  		
+	<binding name="GRMSoapHttpBinding" type="grm_wsdltypes:GRMPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<!-- ###################################################################### -->
+        <!-- ## Client JVM Instance functions. -->
+        <!-- ###################################################################### -->
+
+        <operation name="registerClientJVMInstance">
+            <soap:operation soapAction="http://scld.att.com/grm/registerClientJVMInstance" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="GRMException">
+                <soap:fault name="GRMException" use="literal" />
+            </fault>
+        </operation>
+                
+        <operation name="findClientJVMInstance">
+            <soap:operation soapAction="http://scld.att.com/grm/findClientJVMInstance" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="GRMException">
+                <soap:fault name="GRMException" use="literal" />
+            </fault>
+        </operation>
+        
+  		<!-- ###################################################################### -->
+  		<!-- ## Container functions. -->
+  		<!-- ###################################################################### -->  			
+		<operation name="addContainerDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/addContainerDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+
+		<operation name="updateContainerDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/updateContainerDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+
+		<operation name="deleteContainerDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteContainerDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findAllContainerDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/findAllContainerDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findContainerDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/findContainerDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+							
+		<operation name="addContainerVersionDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/addContainerVersionDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+
+		<operation name="updateContainerVersionDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/updateContainerVersionDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+
+		<operation name="deleteContainerVersionDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteContainerVersionDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="applyContainerVersionDefinitionAssociation">
+			<soap:operation soapAction="http://scld.att.com/grm/applyContainerVersionDefinitionAssociation" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findContainerVersionDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/findContainerVersionDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findContainerVersionDefinitionByCD">
+			<soap:operation soapAction="http://scld.att.com/grm/findContainerVersionDefinitionByCD" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findAllContainerVersionDefinitions">
+			<soap:operation soapAction="http://scld.att.com/grm/findAllContainerVersionDefinitions" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findContainerVersionDefinitionByRO">
+			<soap:operation soapAction="http://scld.att.com/grm/findContainerVersionDefinitionByRO" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="addContainerInstance">
+			<soap:operation soapAction="http://scld.att.com/grm/addContainerInstance" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="updateContainerInstance">
+			<soap:operation soapAction="http://scld.att.com/grm/updateContainerInstance" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="deleteContainerInstance">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteContainerInstance" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findContainerInstance">
+			<soap:operation soapAction="http://scld.att.com/grm/findContainerInstance" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findContainerInstanceByCVD">
+			<soap:operation soapAction="http://scld.att.com/grm/findContainerInstanceByCVD" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findContainerInstanceBySVD">
+			<soap:operation soapAction="http://scld.att.com/grm/findContainerInstanceBySVD" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findContainerInstanceByLRM">
+			<soap:operation soapAction="http://scld.att.com/grm/findContainerInstanceByLRM" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+
+		<operation name="findContainerInstanceByRO">
+			<soap:operation soapAction="http://scld.att.com/grm/findContainerInstanceByRO" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+					
+  		<!-- ###################################################################### -->
+  		<!-- ## LRM functions. -->
+  		<!-- ###################################################################### -->  	
+		<operation name="addNode">
+			<soap:operation soapAction="http://scld.att.com/grm/addNode" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+
+		<operation name="updateNode">
+			<soap:operation soapAction="http://scld.att.com/grm/updateNode" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="deleteNode">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteNode" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findNode">
+			<soap:operation soapAction="http://scld.att.com/grm/findNode" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findAllNodes">
+			<soap:operation soapAction="http://scld.att.com/grm/findAllNodes" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+									
+		<operation name="addLRM">
+			<soap:operation soapAction="http://scld.att.com/grm/addLRM" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+
+		<operation name="updateLRM">
+			<soap:operation soapAction="http://scld.att.com/grm/updateLRM" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+
+		<operation name="deleteLRM">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteLRM" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findLRM">
+			<soap:operation soapAction="http://scld.att.com/grm/findLRM" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findLRMByNode">
+			<soap:operation soapAction="http://scld.att.com/grm/findLRMByNode" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+				
+		<operation name="findAllLRMs">
+			<soap:operation soapAction="http://scld.att.com/grm/findAllLRMs" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findLRMBySVD">
+			<soap:operation soapAction="http://scld.att.com/grm/findLRMBySVD" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findLRMByCVD">
+			<soap:operation soapAction="http://scld.att.com/grm/findLRMByCVD" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="addManagedResource">
+			<soap:operation soapAction="http://scld.att.com/grm/addManagedResource" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		
+		<operation name="upgradeManagedResource">
+			<soap:operation soapAction="http://scld.att.com/grm/upgradeManagedResource" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+		
+		<operation name="addRUpgradeRModifyManagedResource">
+			<soap:operation soapAction="http://scld.att.com/grm/addRUpgradeRModifyManagedResource" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+				
+		<operation name="updateManagedResource">
+			<soap:operation soapAction="http://scld.att.com/grm/updateManagedResource" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>		
+		
+		<operation name="deleteManagedResource">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteManagedResource" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+		
+		<operation name="findManagedResource">
+			<soap:operation soapAction="http://scld.att.com/grm/findManagedResource" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+						
+  		<!-- ###################################################################### -->
+  		<!-- ## Service functions. -->
+  		<!-- ###################################################################### -->  	
+		<operation name="addServiceDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/addServiceDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		  		
+		<operation name="updateServiceDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/updateServiceDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="deleteServiceDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteServiceDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findServiceDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="findAllServiceDefinitions">
+			<soap:operation soapAction="http://scld.att.com/grm/findAllServiceDefinitions" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>								  		
+		<operation name="addServiceVersionDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/addServiceVersionDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="updateServiceVersionDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/updateServiceVersionDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="deleteServiceVersionDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteServiceVersionDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>		
+		<operation name="applyServiceVersionDefinitionAssociation">
+			<soap:operation soapAction="http://scld.att.com/grm/applyServiceVersionDefinitionAssociation" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="findServiceVersionDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceVersionDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findAllServiceVersionDefinition">
+			<soap:operation soapAction="http://scld.att.com/grm/findAllServiceVersionDefinition" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="findServiceVersionDefinitionBySD">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceVersionDefinitionBySD" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="addServiceEndPoint">
+			<soap:operation soapAction="http://scld.att.com/grm/addServiceEndPoint" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>				  				
+		<operation name="updateServiceEndPoint">
+			<soap:operation soapAction="http://scld.att.com/grm/updateServiceEndPoint" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>				  				
+ 		<operation name="deleteServiceEndPoint">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteServiceEndPoint" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+ 		<operation name="findServiceEndPoint">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceEndPoint" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>						  				
+ 		<operation name="findServiceEndPointByCVD">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceEndPointByCVD" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>				  				
+		<operation name="findServiceEndPointBySEPStatus">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceEndPointBySEPStatus" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+ 		<operation name="findServiceEndPointBySVD">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceEndPointBySVD" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>				  				
+ 		<operation name="findServiceEndPointByCI">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceEndPointByCI" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+ 		<operation name="findServiceEndPointByLRM">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceEndPointByLRM" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+ 		<operation name="findServiceEndPointByRO">
+			<soap:operation soapAction="http://scld.att.com/grm/findServiceEndPointByRO" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+ 		<operation name="findRunningServiceEndPoint">
+			<soap:operation soapAction="http://scld.att.com/grm/findRunningServiceEndPoint" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+  		<!-- ###################################################################### -->
+  		<!-- ## RouteOffer Operations. -->
+  		<!-- ###################################################################### -->  	
+ 		<operation name="getAllRouteOffers">
+			<soap:operation soapAction="http://scld.att.com/grm/getAllRouteOffers" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+
+ 		<operation name="getRouteOffers">
+			<soap:operation soapAction="http://scld.att.com/grm/getRouteOffers" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+
+ 		<operation name="cloneContainerConfig">
+			<soap:operation soapAction="http://scld.att.com/grm/cloneContainerConfig" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			  		
+  									  				
+  		<!-- ###################################################################### -->
+  		<!-- ## RouteInfo Operations. -->
+  		<!-- ###################################################################### -->  																			
+		<operation name="getRouteInfo">
+			<soap:operation soapAction="http://scld.att.com/grm/getRouteInfo" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+		<operation name="lockRouteInfoForEdit">
+			<soap:operation soapAction="http://scld.att.com/grm/lockRouteInfoForEdit" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="validateRouteInfo">
+			<soap:operation soapAction="http://scld.att.com/grm/validateRouteInfo" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="saveNReleaseRouteInfo">
+			<soap:operation soapAction="http://scld.att.com/grm/saveNReleaseRouteInfo" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="saveRouteInfo">
+			<soap:operation soapAction="http://scld.att.com/grm/saveRouteInfo" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="releaseRouteInfo">
+			<soap:operation soapAction="http://scld.att.com/grm/releaseRouteInfo" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="getAvailabilityRules">
+			<soap:operation soapAction="http://scld.att.com/grm/getAvailabilityRules" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+		
+		<operation name="saveAvailabilityRules">
+			<soap:operation soapAction="http://scld.att.com/grm/saveAvailabilityRules" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+
+  		<!-- ###################################################################### -->
+  		<!-- ## Action related Operations. -->
+  		<!-- ###################################################################### -->  																			
+		<operation name="findActions">
+			<soap:operation soapAction="http://scld.att.com/grm/findActions" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>					
+	
+					 
+  		<!-- ###################################################################### -->
+  		<!-- ## MMT Operations. -->
+  		<!-- ###################################################################### -->  																			
+		<operation name="checkLRMHeartBeat">
+			<soap:operation soapAction="http://scld.att.com/grm/checkLRMHeartBeat" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="checkLRMHeartBeatNow">
+			<soap:operation soapAction="http://scld.att.com/grm/checkLRMHeartBeatNow" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>							
+		<operation name="getLRMStatistics">
+			<soap:operation soapAction="http://scld.att.com/grm/getLRMStatistics" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>					
+		<operation name="dumpLRM">
+			<soap:operation soapAction="http://scld.att.com/grm/dumpLRM" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>					
+
+		<operation name="startContainer">
+			<soap:operation soapAction="http://scld.att.com/grm/startContainer" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>		
+		<operation name="shutdownContainer">
+			<soap:operation soapAction="http://scld.att.com/grm/shutdownContainer" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="killContainer">
+			<soap:operation soapAction="http://scld.att.com/grm/killContainer" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="checkContainerHeartBeat">
+			<soap:operation soapAction="http://scld.att.com/grm/checkContainerHeartBeat" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="checkContainerHeartBeatNow">
+			<soap:operation soapAction="http://scld.att.com/grm/checkContainerHeartBeatNow" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>		
+		<operation name="getContainerStatistics">
+			<soap:operation soapAction="http://scld.att.com/grm/getContainerStatistics" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="getContainerDiagnostics">
+			<soap:operation soapAction="http://scld.att.com/grm/getContainerDiagnostics" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="dumpContainer">
+			<soap:operation soapAction="http://scld.att.com/grm/dumpContainer" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="checkServiceHeartBeat">
+			<soap:operation soapAction="http://scld.att.com/grm/checkServiceHeartBeat" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="checkServiceHeartBeatNow">
+			<soap:operation soapAction="http://scld.att.com/grm/checkServiceHeartBeatNow" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>			
+		<operation name="getValidEnv">
+			<soap:operation soapAction="http://scld.att.com/grm/getValidEnv" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<operation name="addIPAddress">
+			<soap:operation soapAction="http://scld.att.com/grm/addIPAddress" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="deleteIPAddress">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteIPAddress" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>					
+		<operation name="saveIPAddress">
+			<soap:operation soapAction="http://scld.att.com/grm/saveIPAddress" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="getIPAddress">
+			<soap:operation soapAction="http://scld.att.com/grm/getIPAddress" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		
+		<operation name="getLoggingLevel">
+			<soap:operation soapAction="http://scld.att.com/grm/getLoggingLevel" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="updateLoggingLevel">
+			<soap:operation soapAction="http://scld.att.com/grm/updateLoggingLevel" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		
+		<!-- ###################################################################### -->
+  		<!-- ## Profile Operations. -->
+  		<!-- ###################################################################### -->  
+  		<operation name="getProfiles">
+			<soap:operation soapAction="http://scld.att.com/grm/getProfiles" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="getUpdatableProfiles">
+			<soap:operation soapAction="http://scld.att.com/grm/getUpdatableProfiles" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="addProfile">
+			<soap:operation soapAction="http://scld.att.com/grm/addProfile" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="updateProfile">
+			<soap:operation soapAction="http://scld.att.com/grm/updateProfile" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="deleteProfile">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteProfile" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="getUsersAdminMgtGrps">
+			<soap:operation soapAction="http://scld.att.com/grm/getUsersAdminMgtGrps" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="getNodeGroups">
+			<soap:operation soapAction="http://scld.att.com/grm/getNodeGroups" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="getUserConfiguration">
+			<soap:operation soapAction="http://scld.att.com/grm/getUserConfiguration" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="updateUserConfiguration">
+			<soap:operation soapAction="http://scld.att.com/grm/updateUserConfiguration" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<!-- ###################################################################### -->
+  		<!-- ## Declare and Monitor Operations. -->
+  		<!-- ###################################################################### --> 
+  		
+  		<operation name="getGeoLocations">
+			<soap:operation soapAction="http://scld.att.com/grm/getGeoLocations" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="getGeoLocationNodes">
+			<soap:operation soapAction="http://scld.att.com/grm/getGeoLocationNodes" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		
+		<!-- ###################################################################### -->
+  		<!-- ## Namespaces Operations. -->
+  		<!-- ###################################################################### --> 
+  		
+  		<operation name="addNamespace">
+			<soap:operation soapAction="http://scld.att.com/grm/addNamespace" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="getNamespaces">
+			<soap:operation soapAction="http://scld.att.com/grm/getNamespaces" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="deleteNamespace">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteNamespace" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="addEnvironment">
+			<soap:operation soapAction="http://scld.att.com/grm/addEnvironment" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="deleteEnvironment">
+			<soap:operation soapAction="http://scld.att.com/grm/deleteEnvironment" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+			
+		<!-- ###################################################################### -->
+  		<!-- ## Policy Operations. -->
+  		<!-- ###################################################################### --> 
+  						
+		<operation name="addPolicy">
+			<soap:operation soapAction="http://scld.att.com/grm/addPolicy" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="updatePolicy">
+			<soap:operation soapAction="http://scld.att.com/grm/updatePolicy" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="deletePolicy">
+			<soap:operation soapAction="http://scld.att.com/grm/deletePolicy" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="getPolicies">
+			<soap:operation soapAction="http://scld.att.com/grm/getPolicies" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="processResourceContention">
+			<soap:operation soapAction="http://scld.att.com/grm/processResourceContention" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>
+		<operation name="processScaleUp">
+			<soap:operation soapAction="http://scld.att.com/grm/processScaleUp" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>	
+		<operation name="processScaleDown">
+			<soap:operation soapAction="http://scld.att.com/grm/processScaleDown" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="GRMException">
+				<soap:fault name="GRMException" use="literal" />
+			</fault>
+		</operation>																											
+	</binding>
+	
+	<service name="GRMService">
+		<port name="GRMSoapHttpPort" binding="tns:GRMSoapHttpBinding">
+			<soap:address location="http://localhost:7200/GRMService/v1" />
+		</port>
+	</service>
+</definitions>

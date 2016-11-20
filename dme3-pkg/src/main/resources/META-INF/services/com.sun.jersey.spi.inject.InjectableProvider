@@ -1,0 +1,5 @@
+com.att.aft.dme2.internal.jersey.core.impl.provider.xml.SAXParserContextProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.xml.XMLStreamReaderContextProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.xml.DocumentBuilderFactoryProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.xml.TransformerFactoryProvider
+

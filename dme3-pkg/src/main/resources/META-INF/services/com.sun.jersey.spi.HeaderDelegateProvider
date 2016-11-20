@@ -1,0 +1,9 @@
+com.att.aft.dme2.internal.jersey.core.impl.provider.header.LocaleProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.header.EntityTagProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.header.MediaTypeProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.header.CacheControlProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.header.NewCookieProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.header.CookieProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.header.URIProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.header.DateProvider
+com.att.aft.dme2.internal.jersey.core.impl.provider.header.StringProvider

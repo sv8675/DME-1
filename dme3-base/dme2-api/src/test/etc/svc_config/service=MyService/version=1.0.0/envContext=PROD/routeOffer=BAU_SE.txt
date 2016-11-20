@@ -1,0 +1,13 @@
+#
+#Mon Oct 31 13:21:49 CDT 2016
+TXCDTL01ab850e.ITServices.sbc.com,64493=latitude\=33.3739;longitude\=-86.7983;lease\=1451946721759;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,51928=latitude\=33.3739;longitude\=-86.7983;lease\=1451947508405;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,49206=latitude\=33.3739;longitude\=-86.7983;lease\=1451944975812;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,62805=latitude\=33.3739;longitude\=-86.7983;lease\=1451946556435;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,65307=latitude\=33.3739;longitude\=-86.7983;lease\=1451942974651;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,50320=latitude\=33.3739;longitude\=-86.7983;lease\=1451947541981;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,57583=latitude\=33.3739;longitude\=-86.7983;lease\=1451947160055;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,51568=latitude\=33.3739;longitude\=-86.7983;lease\=1451946819466;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,62850=latitude\=33.3739;longitude\=-86.7983;lease\=1451946572744;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,62877=latitude\=33.3739;longitude\=-86.7983;lease\=1451946587155;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TXCDTL01ab850e.ITServices.sbc.com,62055=latitude\=33.3739;longitude\=-86.7983;lease\=1451942313919;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE

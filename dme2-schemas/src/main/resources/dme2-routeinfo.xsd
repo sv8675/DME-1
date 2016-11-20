@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://aft.att.com/dme2/types"
+	xmlns:tns="http://aft.att.com/dme2/types" elementFormDefault="qualified">
+
+<!-- 
+<routeInfo serviceName="MyService" serviceVersion="1.0.0" envContext="PROD" xmlns="http://aft.att.com/dme2/schema">
+
+	<dataPartition>
+   		<partitionKeyPath>/x/y/z</partitionKeyPath>
+   		<partition name="W" low="205977" high="205999"/>
+   		<partition name="E" low="205444" high="205555"/>
+   		<partition name="MW" low="404707" high="404707"/>
+   		<listDataPartition name="FLMARKETS">
+   			<value>PAC</value>
+   			<value>WTK</value>
+   		</listDataPartition>
+   		<listDataPartition name="ATLMARKETS">
+   			<value>DEC</value>
+   			<value>CPK</value>
+   		</listDatapartition>
+   	</dataPartition>
+   	
+   	<versionMappings>
+   		<versionMap name="TestVersionMap" fromVersionFilter="1.0.0" outgoingVersionFilter="1.0.1"/>
+   		<versionMap name="TestVersionMap_2" fromVersionFilter="73.0.0" outgoingVersionFilter="78.0.0"/>
+   	</versionMappings>
+
+	<routeGroups>
+		<routeGroup name="APPLE">
+			<partner>APPLE</partner>
+			<route name="W">
+				<dataPartitionRef>W</dataPartitionRef>
+				<locationSelector latitude="33.6" longitude="-86.6" maxDistance="200"/>
+				<routeOffer name="PRIMARY" sequence="1" active="false"/>
+				<routeOffer name="SECONDARY" sequence="2"/>
+			</route>
+			<route name="E">
+				<dataPartitionRef>E</dataPartitionRef>
+				<routeOffer name="PRIMARY" sequence="1"/>
+				<routeOffer name="SECONDARY" sequence="2"/>
+			</route>	
+			<route name="MW">
+				<dataPartitionRef>MW</dataPartitionRef>
+				<routeOffer name="PRIMARY" sequence="1"/>
+				<routeOffer name="SECONDARY" sequence="2"/>
+			</route>	
+		</routeGroup>
+		<routeGroup>
+		   ....
+	    </routeGroup>
+	    ....
+	</routeGroups>
+-->
+
+
+	<element name="routeInfo" type="tns:RouteInfo"/>
+
+	<complexType name="RouteInfo">
+		<sequence>
+			<element name="dataPartitionKeyPath" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="dataPartitions" type="tns:DataPartitions" minOccurs="0" maxOccurs="1"/>
+			<element name="versionMappings" type="tns:VersionMappings" minOccurs="0" maxOccurs="1"/>
+			<element name="routeGroups" type="tns:RouteGroups" minOccurs="1" maxOccurs="1"/>
+			<element name="dme2BootStrapData" type="string" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+		<attribute name="serviceName" type="string" use="optional"/>
+		<attribute name="serviceVersion" type="string" use="optional"/>
+		<attribute name="envContext" type="string" use="required"/>
+		<attribute name="stalenessInMins" type="long" use="optional"/>
+	</complexType>
+	
+	<complexType name="DataPartitions">
+		<sequence>
+			<element name="dataPartitionKeyPath" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="listDataPartition" type="tns:ListDataPartition" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="dataPartition" type="tns:DataPartition" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ListDataPartition">
+		<sequence>
+			<element name="value" type="string" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="name" type="string" use="required"/>
+	</complexType>
+	
+	<complexType name="DataPartition">
+		<attribute name="name" type="string" use="required"/>
+		<attribute name="low" type="string" use="required"/>
+		<attribute name="high" type="string" use="required"/>
+	</complexType>
+	
+
+	
+	<complexType name="RouteGroups">
+		<sequence>
+			<element name="routeGroup" type="tns:RouteGroup" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>	
+	
+	<complexType name="RouteGroup">
+		<sequence>
+			<element name="partner" type="string" minOccurs="1" maxOccurs="unbounded"/>
+			<element name="route" type="tns:Route" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="name" type="string" use="required"/>
+	</complexType>		
+	
+	<complexType name="Route">
+		<sequence>
+			<element name="dataPartitionRef" type="string" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="versionMapRef" type="string" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="stickySelectorKey" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="versionSelector" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="routeLocationSelector" type="tns:RouteLocationSelector" minOccurs="0" maxOccurs="1"/>
+			<element name="routeOffer" type="tns:RouteOffer" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="name" type="string" use="required"/>
+	</complexType>
+	
+	<complexType name="RouteLocationSelector">
+		<attribute name="latitude" type="double" use="required"/>
+		<attribute name="longitude" type="double" use="required"/>
+		<attribute name="maxDistance" type="double" use="required"/>
+	</complexType>
+	
+	<complexType name="RouteOffer">
+		<attribute name="name" type="string" use="required"/>
+		<attribute name="sequence" type="int" use="required"/>
+		<attribute name="allowDynamicStickiness" type="boolean" use="optional" default="false"/>
+		<attribute name="active" type="boolean" use="optional" default="true"/>
+		<attribute name="stalenessInMins" type="long" use="optional"/>
+		<attribute name="versionMapRef" type="string" use="optional"/>
+	</complexType>
+
+	<complexType name="VersionMappings">
+		<sequence>
+			<element name="versionMap" type="tns:VersionMap" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="VersionMap">
+		<sequence>
+			<element name="versionMapInfo" type="tns:VersionMapInfo" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="name" type="string" use="required"/>
+	</complexType>
+	
+	<complexType name="VersionMapInfo">
+		<attribute name="fromVersionFilter" type="string" use="required"/>
+		<attribute name="outgoingVersionFilter" type="string" use="required"/>
+	</complexType>
+</schema>

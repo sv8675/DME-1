@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routeInfo envContext="LAB" serviceVersion="1.0.0" serviceName="com.att.aft.dme2.test.TestRefreshCachedRouteInfo" xmlns:ns2="http://scld.att.com/grm/RouteInfoMetaData/v1" xmlns="http://aft.att.com/dme2/types"> 
+    <routeGroups> 
+        <routeGroup name="RG_1"> 
+            <partner>DME2_TEST</partner> 
+            <route name="R_1"> 
+                <routeOffer name="PRIMARY" sequence="1" allowDynamicStickiness="false" active="true"/> 
+            </route> 
+			<route name="R_2"> 
+                <routeOffer name="SECONDARY" sequence="2" allowDynamicStickiness="false" active="true"/> 
+            </route> 
+        </routeGroup> 
+    </routeGroups> 
+    <dme2BootStrapData>
+	dme2.routeInfo.cachettl.ms.DEFAULT=300000
+	dme2.routeInfo.cachettl.ms.com.att.aft.dme2.test=60000
+	dme2.routeInfo.cachettl.ms.com.att.aft.dme2.test.TestRefreshCachedRouteInfo=120000
+	dme2.sep.cachettl.ms.DEFAULT=300000
+	dme2.sep.cachettl.ms.com.att.aft.dme2.test=60000
+	dme2.sep.cachettl.ms.com.att.aft.dme2.test.TestRefreshCachedRouteInfo=120000
+</dme2BootStrapData> 
+</routeInfo>

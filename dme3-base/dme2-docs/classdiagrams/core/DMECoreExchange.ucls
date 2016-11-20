@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="com.att.aft.dme3.api.http.DmeExchange.DME3QueuedThreadPool" project="dme-core" 
+    file="/dme-core/src/main/java/com/att/aft/dme3/api/http/DmeExchange.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="172" x="1320" y="1155"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.att.aft.dme3.api.http.DmeExchange" project="dme-core" 
+    file="/dme-core/src/main/java/com/att/aft/dme3/api/http/DmeExchange.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="117" x="1320" y="1016"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.att.aft.dme3.api.http.MessageHeaderUtils" project="dme-core" 
+    file="/dme-core/src/main/java/com/att/aft/dme3/api/http/MessageHeaderUtils.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="318" x="662" y="-221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.att.aft.dme3.api.http.ClientRequestContext" project="dme-core" 
+    file="/dme-core/src/main/java/com/att/aft/dme3/api/http/ClientRequestContext.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="351" width="376" x="246" y="-221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.att.aft.dme3.api.http.DmeBasicAuthentication" project="dme-core" 
+    file="/dme-core/src/main/java/com/att/aft/dme3/api/http/DmeBasicAuthentication.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="260" x="1020" y="-221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.att.aft.dme3.api.http.DmeExchange.DME3ExchangeRetry" project="dme-core" 
+    file="/dme-core/src/main/java/com/att/aft/dme3/api/http/DmeExchange.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="204" x="1320" y="-221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.att.aft.dme3.api.http.HttpListeners" project="dme-core" 
+    file="/dme-core/src/main/java/com/att/aft/dme3/api/http/HttpListeners.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1197" width="368" x="1925" y="-221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.att.aft.dme3.api.http.HttpRequestInvoker" project="dme-core" 
+    file="/dme-core/src/main/java/com/att/aft/dme3/api/http/HttpRequestInvoker.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="387" width="321" x="1564" y="-221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <nesting id="9">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </nesting>  
+  <nesting id="10">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
+  <association id="11">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="12" name="exchange"/>      
+      <multiplicity id="13" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="14">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="15" name="exchange"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

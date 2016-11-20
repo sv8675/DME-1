@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+       
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+ <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="java.lang" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5p %c{1} - %m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="com.att.aft.dme2.iterator.metrics">
+        <level value="WARN" />
+    </logger>
+    <logger name="com.att.aft.dme2.cache">
+        <level value="DEBUG" />
+    </logger>
+    <logger name="com.att.aft.dme2.event">
+        <level value="INFO" />
+    </logger>
+    <logger name="org.eclipse">
+        <level value="INFO" />
+    </logger>
+    <logger name="org.eclipse.jetty.server.Server">
+        <level value="DEBUG" />
+    </logger>
+    <logger name="com.att.aft.dme2.jms.DME2JMSServlet">
+        <level value="DEBUG" />
+    </logger>
+    <root>
+        <priority value ="debug" />
+        <appender-ref ref="java.lang" />
+    </root>
+
+</log4j:configuration>

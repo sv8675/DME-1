@@ -1,0 +1,14 @@
+#1477192003661
+#Sat Oct 22 22:06:43 CDT 2016
+ALCDTL43RJ6015.ITServices.sbc.com,49731=latitude\=33.3739;longitude\=-86.7983;lease\=1477184148501;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,47582=latitude\=33.3739;longitude\=-86.7983;lease\=1477027544242;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,48803=latitude\=33.3739;longitude\=-86.7983;lease\=1456259761277;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,48279=latitude\=33.3739;longitude\=-86.7983;lease\=1476730304682;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,49272=latitude\=33.3739;longitude\=-86.7983;lease\=1476732144785;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+ALCDTL43RJ6015.ITServices.sbc.com,49062=latitude\=33.3739;longitude\=-86.7983;lease\=1477192003660;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,48721=latitude\=33.3739;longitude\=-86.7983;lease\=1454956063431;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,45447=latitude\=33.3739;longitude\=-86.7983;lease\=1476464613633;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,45305=latitude\=33.3739;longitude\=-86.7983;lease\=1472055333633;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,47877=latitude\=33.3739;longitude\=-86.7983;lease\=1454958743059;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,46459=latitude\=33.3739;longitude\=-86.7983;lease\=1472767991708;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1
+TestServer,45496=latitude\=33.3739;longitude\=-86.7983;lease\=1472491198970;protocol\=http;contextPath\=/service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE_1;routeOffer\=BAU_SE_1

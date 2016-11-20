@@ -1,0 +1,4 @@
+#
+#Sat Oct 22 22:23:41 CDT 2016
+TestServer,49902=latitude\=33.3739;longitude\=-86.7983;lease\=1473443431444;protocol\=http;contextPath\=/service\=com.att.aft.dme2.api.TestDME2ThrottleFilter33/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TestServer,48914=latitude\=33.3739;longitude\=-86.7983;lease\=1473447414871;protocol\=http;contextPath\=/service\=com.att.aft.dme2.api.TestDME2ThrottleFilter33/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE

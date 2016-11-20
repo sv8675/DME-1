@@ -1,0 +1,4 @@
+#1477192146346
+#Sat Oct 22 22:09:06 CDT 2016
+ALCDTL43RJ6015.ITServices.sbc.com,48581=latitude\=33.3739;longitude\=-86.7983;lease\=1477192146345;protocol\=http;contextPath\=/service\=com.att.test.ContinuationQueueService/version\=1.0.0/envContext\=DEV/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+ALCDTL43RJ6015.ITServices.sbc.com,45662=latitude\=33.3739;longitude\=-86.7983;lease\=1477184287930;protocol\=http;contextPath\=/service\=com.att.test.ContinuationQueueService/version\=1.0.0/envContext\=DEV/routeOffer\=BAU_SE;routeOffer\=BAU_SE

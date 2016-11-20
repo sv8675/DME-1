@@ -1,0 +1,4 @@
+#1397758203323
+#Thu Apr 17 14:10:03 EDT 2014
+90.136.36.180,2525=latitude\=abc;longitude\=abc;lease\=1397758203322;protocol\=http;contextPath\=/service\=com.att.aft.dme2.test.TestFindAndFilterInvalidEndpoints/version\=/envContext\=LAB/routeOffer\=
+90.136.36.180,25435=latitude\=22.33;longitude\=33.44;lease\=1397758203322;protocol\=http;contextPath\=/service\=com.att.aft.dme2.test.TestFindAndFilterInvalidEndpoints/version\=1.0.0/envContext\=LAB/routeOffer\=BAU

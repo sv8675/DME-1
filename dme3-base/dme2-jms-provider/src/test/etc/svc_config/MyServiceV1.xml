@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+
+<!-- routeInfo serviceName="MyService" serviceVersion="1.0.0" envContext="PROD" xmlns="http://aft.att.com/ehttp/schema">
+   <partitionKeyPath>/x/y/z</partitionKeyPath>
+   <partition name="SE" low="205977" high="205999"/>
+   <partition name="E" low="205444" high="205555"/>      
+   <partition name="ATL" low="404707" high="404707"/>     
+   <zone name="BAU_SE">
+       <partitionName>SE</partitionName>
+       <partitionName>E</partitionName>
+       <partnerName>*</partnerName>
+   </zone>
+   <zone name="BAU_ATL">
+   		<partitionName>ATL</partitionName>
+   		<partnerName>*</partnerName>
+   </zone>
+   <zone name="APPLE_SE">
+       <partitionName>SE</partitionName>
+       <partitionName>E</partitionName>
+       <partnerName>APPLE</partnerName>
+   </zone>
+   <zone name="WALMART_SE">
+       <partitionName>SE</partitionName>
+       <partnerName>WALMART</partnerName>
+   </zone>
+   <zone name="WALMART_E">
+       <partitionName>E</partitionName>
+       <partnerName>WALMART</partnerName>
+   </zone>   
+</routeInfo-->
+<routeInfo serviceName="MyService" serviceVersion="1.0.0" envContext="PROD" xmlns="http://aft.att.com/dme2/types">
+
+	<dataPartitionKeyPath>/x/y/z</dataPartitionKeyPath>
+
+	<dataPartitions>
+   		<dataPartition name="SE" low="205977" high="205999"/>
+   		<dataPartition name="E" low="205444" high="205555"/>      
+   		<dataPartition name="ATL" low="404707" high="404707"/>
+   	</dataPartitions>
+
+	<routeGroups>
+		<routeGroup name="APPLE">
+			<partner>APPLE</partner>
+			<route name="DEFAULT">
+				<dataPartitionRef>SE</dataPartitionRef>
+				<dataPartitionRef>E</dataPartitionRef>
+				<dataPartitionRef>ATL</dataPartitionRef>
+				<routeOffer name="APPLE_SE" sequence="7" active="false"/>
+			</route>
+		</routeGroup>
+		<routeGroup name="WALMART">
+			<partner>WALMART</partner>
+			<route name="SE">
+				<dataPartitionRef>SE</dataPartitionRef>
+				<routeOffer name="WALMART_SE" sequence="1" active="true"/>
+			</route>
+			<route name="E">
+				<dataPartitionRef>E</dataPartitionRef>
+				<routeOffer name="WALMART_E" sequence="2" active="true"/>
+			</route>
+			<route name="ATL">
+				<dataPartitionRef>MW</dataPartitionRef>
+				<routeOffer name="PRIMARY_ATL" sequence="1" active="true"/>
+				<routeOffer name="SECONDARY_ATL" sequence="3" active="true"/>
+			</route>
+         </routeGroup>		
+		<routeGroup name="BAU">
+			<partner>*</partner>
+			<route name="SE">
+				<dataPartitionRef>SE</dataPartitionRef>
+				<routeOffer name="BAU_SE" sequence="1" active="true"/>
+			</route>
+			<route name="E">
+				<dataPartitionRef>E</dataPartitionRef>
+				<routeOffer name="PRIMARY_E" sequence="2" active="true"/>
+				<routeOffer name="SECONDARY_E" sequence="1" active="true"/>
+			</route>
+			<route name="ATL">
+				<dataPartitionRef>ATL</dataPartitionRef>
+				<routeOffer name="BAU_ATL" sequence="1" active="true"/>
+			</route>
+         </routeGroup>
+	</routeGroups>
+</routeInfo>

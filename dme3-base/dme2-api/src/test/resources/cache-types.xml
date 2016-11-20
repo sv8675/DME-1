@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+
+<ns2:CacheTypes xmlns:ns2="CacheTypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="CacheTypes.xsd">
+	<CacheType name="RouteInfoCache">
+		<element_ttl>300000</element_ttl>
+		<refresh_interval>20000</refresh_interval>
+		<failed_refresh_retry_ttls>5000</failed_refresh_retry_ttls>
+		<dataHandler>com.att.aft.dme2.cache.handler.cacheabledata.RouteInfoCacheDataHandler</dataHandler>
+		<persistenceHandler>com.att.aft.dme2.cache.persistence.CacheSerializationToFile</persistenceHandler>
+		<persist_frequency_ms>300000</persist_frequency_ms><!-- dme2_persist_cached_routeinfo_frequency_ms -->
+	</CacheType>
+	<CacheType name="EndpointCache">
+		<element_ttl>300000</element_ttl>
+		<refresh_interval>20000</refresh_interval>
+		<failed_refresh_retry_ttls>5000</failed_refresh_retry_ttls>
+		<idle_timeout>259200000</idle_timeout> <!-- DME2_UNUSED_ENDPOINT_REMOVAL_DURATION_MS -->
+		<idle_timeout_check_interval>300000</idle_timeout_check_interval> <!-- DME2_UNUSED_ENDPOINT_REMOVAL_DELAY -->
+		<dataHandler>com.att.aft.dme2.cache.handler.cacheabledata.EndpointCacheDataHandler</dataHandler>
+		<persist_frequency_ms>300000</persist_frequency_ms>
+		<persistenceHandler>com.att.aft.dme2.cache.persistence.CacheSerializationToFile</persistenceHandler>
+	</CacheType>
+	<CacheType name="StaleEndpointCache">
+		<cleanup_interval_ms>60000</cleanup_interval_ms>
+	</CacheType>
+	<CacheType name="StaleRouteOfferCache">
+		<cleanup_interval_ms>60000</cleanup_interval_ms>
+	</CacheType>
+</ns2:CacheTypes>

@@ -1,0 +1,13 @@
+#
+#Mon Oct 31 13:21:49 CDT 2016
+TXCDTL01ab850e.ITServices.sbc.com,64493=latitude\=33.3739;longitude\=-86.7983;lease\=1451946722588;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,51928=latitude\=33.3739;longitude\=-86.7983;lease\=1451947508416;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,49206=latitude\=33.3739;longitude\=-86.7983;lease\=1451944975830;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,62805=latitude\=33.3739;longitude\=-86.7983;lease\=1451946556452;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,65307=latitude\=33.3739;longitude\=-86.7983;lease\=1451942974663;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,50320=latitude\=33.3739;longitude\=-86.7983;lease\=1451947541990;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,57583=latitude\=33.3739;longitude\=-86.7983;lease\=1451947160063;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,51568=latitude\=33.3739;longitude\=-86.7983;lease\=1451946819476;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,62850=latitude\=33.3739;longitude\=-86.7983;lease\=1451946572760;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,62877=latitude\=33.3739;longitude\=-86.7983;lease\=1451946678422;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE
+TXCDTL01ab850e.ITServices.sbc.com,62055=latitude\=33.3739;longitude\=-86.7983;lease\=1451942313929;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=APPLE_SE;routeOffer\=APPLE_SE

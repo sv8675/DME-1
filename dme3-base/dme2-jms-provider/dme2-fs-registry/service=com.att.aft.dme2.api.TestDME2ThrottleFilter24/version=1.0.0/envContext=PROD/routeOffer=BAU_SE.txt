@@ -1,0 +1,9 @@
+#1477192936995
+#Sat Oct 22 22:22:16 CDT 2016
+TestServer,45563=latitude\=33.3739;longitude\=-86.7983;lease\=1472768853127;protocol\=http;contextPath\=/service\=com.att.aft.dme2.api.TestDME2ThrottleFilter24/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TestServer,45714=latitude\=33.3739;longitude\=-86.7983;lease\=1477028381899;protocol\=http;contextPath\=/service\=com.att.aft.dme2.api.TestDME2ThrottleFilter24/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+ALCDTL43RJ6015.ITServices.sbc.com,46790=latitude\=33.3739;longitude\=-86.7983;lease\=1477192936994;protocol\=http;contextPath\=/service\=com.att.aft.dme2.api.TestDME2ThrottleFilter24/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TestServer,46555=latitude\=33.3739;longitude\=-86.7983;lease\=1472492066875;protocol\=http;contextPath\=/service\=com.att.aft.dme2.api.TestDME2ThrottleFilter24/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TestServer,46516=latitude\=33.3739;longitude\=-86.7983;lease\=1476465562186;protocol\=http;contextPath\=/service\=com.att.aft.dme2.api.TestDME2ThrottleFilter24/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+TestServer,46969=latitude\=33.3739;longitude\=-86.7983;lease\=1472056194088;protocol\=http;contextPath\=/service\=com.att.aft.dme2.api.TestDME2ThrottleFilter24/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+ALCDTL43RJ6015.ITServices.sbc.com,48429=latitude\=33.3739;longitude\=-86.7983;lease\=1477185076968;protocol\=http;contextPath\=/service\=com.att.aft.dme2.api.TestDME2ThrottleFilter24/version\=1.0.0/envContext\=PROD/routeOffer\=BAU_SE;routeOffer\=BAU_SE

@@ -1,0 +1,432 @@
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://scld.att.com/grm/types/v1"
+	xmlns:tns="http://scld.att.com/grm/types/v1" 
+	elementFormDefault="qualified">
+
+	
+	<complexType name="ServiceDefinition">
+		<sequence>
+			<element name="name" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="partner" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="routingMetaDataLockedByUser" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="operationalInfo" type="tns:OperationalInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>	
+	
+	<complexType name="ServiceVersionDefinition">
+		<sequence>
+			<element name="name" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="version" type="tns:VersionDefinition" minOccurs="1" maxOccurs="1"/>
+			<element name="reRegistrationInterval" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="partner" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="routingMetaDataLockedByUser" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="operationalInfo" type="tns:OperationalInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+			
+		</sequence>
+	</complexType>	
+	
+	<complexType name="ServiceEndPoint">
+		<sequence>
+			<element name="name" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="version" type="tns:VersionDefinition" minOccurs="1" maxOccurs="1"/>
+			<element name="hostAddress" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="listenPort" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="latitude" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="longitude" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="registrationTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
+			<element name="expirationTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
+			<element name="contextPath" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="routeOffer" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="containerVersionDefinitionName" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="statusInfo" type="tns:StatusInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="operationalInfo" type="tns:OperationalInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="protocol" type="string" minOccurs="0" maxOccurs="1" default="http"/>	
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="clientSupportedVersions" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="DME2Version" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="DME2JDBCDatabaseName" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="DME2JDBCHealthCheckUser" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="DME2JDBCHealthCheckPassword" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="DME2JDBCHealthCheckDriver" type="string" minOccurs="0" maxOccurs="1"/>
+		</sequence>  
+	</complexType>	
+	
+	<complexType name="ContainerDefinition">
+		<sequence>
+			<element name="name" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="swmComponent" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="operationalInfo" type="tns:OperationalInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>			
+		</sequence>
+	</complexType>	
+		
+	<complexType name="ContainerVersionDefinition">
+		<sequence>
+			<element name="name" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="version" type="tns:VersionDefinition" minOccurs="1" maxOccurs="1"/>
+			<element name="containerType" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="containerTypeVendor" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="containerTypeVersion" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="reRegistrationInterval" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="swmPackage" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="routeOffer" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="operationalInfo" type="tns:OperationalInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="memoryUsageWeight" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="memoryUsageWeightOverride" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="CPUUsageWeight" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="CPUUsageWeightOverride" type="int" minOccurs="0" maxOccurs="1"/>	
+			<element name="resourceContentionLevel" type="tns:ResourceContentionLevel" minOccurs="0" maxOccurs="1"/>	
+			<element name="resourceContentionLevelOverride" type="tns:ResourceContentionLevel" minOccurs="0" maxOccurs="1"/>	
+			<element name="notificationInfoList" type="tns:NotificationInfo" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="notificationInfoOverrideList" type="tns:NotificationInfo" minOccurs="0" maxOccurs="unbounded"/>			
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>			
+		</sequence>
+	</complexType>	
+	
+	<complexType name="ContainerInstance">
+		<sequence>
+			<element name="name" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="version" type="tns:VersionDefinition" minOccurs="1" maxOccurs="1"/>
+			<element name="hostAddress" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="processId" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="listenPort" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="registrationTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
+			<element name="expirationTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
+			<element name="contextPath" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="partner" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="routeOffer" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="minConfigured" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="maxConfigured" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="instanceNumber" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="statusInfo" type="tns:StatusInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="lrmInstanceId" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="operationalInfo" type="tns:OperationalInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>			
+		</sequence>
+	</complexType>
+
+	<simpleType name="DME2JDBCDriverType">
+		<restriction base="string">
+			<enumeration value="ORACLE" />
+			<enumeration value="MYSQL" />
+			<enumeration value="HSQLDB" />
+		</restriction>
+	</simpleType>
+	
+	<complexType name="ClientJVMInstance">
+        <sequence>
+            <element name="hostAddress" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="processId" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="applicationId" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="processOwner" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="mechId" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="javaVersion" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="dme2Version" type="string" minOccurs="0" maxOccurs="1"/>  
+            <element name="dme2Environment" type="string" minOccurs="0" maxOccurs="1"/>            
+            <element name="registrationTime" type="dateTime" minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>Registration time is set by GRM topology service on a REGISTER action.</documentation>
+                </annotation>
+            </element>            
+            <element name="deregistrationTime" type="dateTime" minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>De-registration time is set by GRM topology service on a DEREGISTER action.</documentation>
+                </annotation>
+            </element>            
+            <element name="expirationTime" type="dateTime" minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>Expiration time MUST be set by client unless the GRM configured default is acceptable.</documentation>
+                </annotation>
+            </element>            
+            <element name="bootstrapProperties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="otherProperties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>  
+
+    <simpleType name="ClientJVMAction">
+        <restriction base="string">
+            <enumeration value="REGISTER" />
+            <enumeration value="DEREGISTER" />
+            <enumeration value="REFRESH" />
+        </restriction>
+    </simpleType>
+
+	<complexType name="NotificationInfo">
+		<sequence>
+			<element name="notificationChannel" type="tns:NotificationChannel" minOccurs="1" maxOccurs="1" />
+			<element name="notificationAddress" type="string" minOccurs="1" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	
+	<simpleType name="NotificationChannel">
+		<restriction base="string">
+			<enumeration value="EMAIL" />
+			<enumeration value="TELALERT" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ResourceContentionLevel">
+		<restriction base="string">
+			<enumeration value="WARN" />
+			<enumeration value="ENFORCE" />
+		</restriction>
+	</simpleType>
+	
+	<complexType name="Node">
+		<sequence>
+			<element name="hostAddress" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="operationalInfo" type="tns:OperationalInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>			
+		</sequence>
+	</complexType>
+			
+	<complexType name="LRM">
+		<sequence>
+			<element name="hostAddress" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="listenPort" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="registrationTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
+			<element name="expirationTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
+			<element name="contextPath" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="statusInfo" type="tns:StatusInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="resourceContentionFlag" type="boolean" minOccurs="0" maxOccurs="1"/>
+			<element name="operationalInfo" type="tns:OperationalInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>			
+		</sequence>
+	</complexType>
+
+	<complexType name="ManagedResource">
+		<sequence>
+			<element name="name" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="version" type="tns:VersionDefinition" minOccurs="1" maxOccurs="1"/>
+			<element name="routeOffer" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="hostAddress" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="listenPort" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="minConfigured" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="maxConfigured" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="nameValueList" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>	
+			<element name="operationalInfo" type="tns:OperationalInfo" minOccurs="0" maxOccurs="1"/>
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="lrmResourceConfigXML" type="string" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="OperationalInfo">
+		<sequence>
+			<element name="createdBy" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="updatedBy" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="createdTimestamp" type="dateTime" minOccurs="0" maxOccurs="1"/>
+			<element name="updatedTimestamp" type="dateTime" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>	
+	
+	<complexType name="NameValuePair">
+		<attribute name="name" type="string" use="required"/>
+		<attribute name="value" type="string" use="required"/>
+	</complexType>	
+						
+	<complexType name="VersionDefinition">
+		<attribute name="major" type="int" use="required"/>
+		<attribute name="minor" type="int" use="required"/>
+		<attribute name="patch" type="string" use="optional"/>
+	</complexType>		
+	
+	<complexType name="StatusInfo">
+		<sequence>
+			<element name="status" type="tns:Status" minOccurs="1" maxOccurs="1"/>
+			<element name="statusReasonCode" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="statusReasonDescription" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="statusCheckTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>	
+		
+	<simpleType name="Status">
+		<restriction base="string">
+			<enumeration value="CONFIGURED" />
+			<enumeration value="RUNNING" />
+			<enumeration value="UNHEALTHY" />
+			<enumeration value="UNKNOWN" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="AssociationOperation">
+		<restriction base="string">
+			<enumeration value="ADD" />
+			<enumeration value="REMOVE" />
+			<enumeration value="REPLACE" />
+		</restriction>
+	</simpleType>	
+			
+	<simpleType name="ResultCode">
+		<restriction base="string">
+			<!--  need more discussion? -->
+			<enumeration value="SUCCESS" />
+			<enumeration value="FAIL" />
+			<enumeration value="WARNING" />
+			<enumeration value="INFO" />
+		</restriction>
+	</simpleType>
+	
+	<complexType name="Result">
+		<sequence>
+			<element name="resultCode" type="tns:ResultCode" minOccurs="1" maxOccurs="1"/>
+			<element name="resultText" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="nameValueList" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="requestIdentifier" type="string" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="Action">
+		<sequence>
+			<element name="actionId" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="actionOperation" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="trackingId" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="status" type="tns:ActionStatus" minOccurs="0" maxOccurs="1"/>
+			<element name="createTime" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="completedTime" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="targetEntityIdentifier" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="actionEntityIdentifier" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="submittedBy" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="actionResult" type="tns:Result" minOccurs="0" maxOccurs="1"/>
+			<element name="properties" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>			
+		</sequence>
+	</complexType>	
+
+	<simpleType name="ActionStatus">
+		<restriction base="string">
+			<enumeration value="SUBMITTED" />
+			<enumeration value="STARTED" />
+			<enumeration value="COMPLETED" />
+			<enumeration value="FAILED" />
+		</restriction>
+	</simpleType>	
+	
+	<complexType name="RequestContext">
+		<sequence>
+			<element name="env" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="actionTrackingId" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="CurrentProfile" type="tns:Profile" minOccurs="0" />
+		</sequence>
+	</complexType>	
+	
+	<!--  
+	Option 1: contVerDef & LRM specified: 	CVD on this LRM will be started/stoped. (will be executed for all the routeOffers)
+	Option 2: serVerDef & LRM specified: 	cvdList will be retrieved based on SVD. So cvdList will be started/stoped on specified LRM. (will be executed for all the routeOffers)
+	Option 3: ONLY contVerDef specified: 	implies start/stop on all LRMs. (will be executed for all the routeOffers)
+	Option 4: ONLY serVerDef specified: 	start/stop all the CVDs that associated with this SVD. (will be executed for all the routeOffers)
+	Option 5: ONLY LRM specified: 			start/stop all CVDs on this LRM. (will be executed for all the routeOffers)
+	option 6: ONLY containerInstance is specified: 	for start, this should be of type CONFIGURED.  (will be executed for ONLY the routeOffer in the CI.)
+													for stop and other requests, this should NOT be of type CONFIGURED.
+	-->
+	<complexType name="ContainerActionRequest">
+		<sequence>
+			<element name="containerVerDef" type="tns:ContainerVersionDefinition" />
+			<element name="serviceVerDef" type="tns:ServiceVersionDefinition" />
+			<element name="lrm" type="tns:LRM" />
+			<element name="containerInstance" type="tns:ContainerInstance" />
+			<element name="numberOfInstances" type="int" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="Profile">
+		<sequence>
+			<element name="profileName" type="string">
+				<annotation>
+					<documentation>Profile name that’s uniquely defined by the user</documentation>
+				</annotation>
+			</element>
+			<element name="profileType">
+				<annotation>
+					<documentation>Defines the type of profile, whether user specific profile or managementgroup specific profile.</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="USER"/>
+						<enumeration value="MGTGRP"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="ownerId" type="string"/>
+			<element name="NodeInfoList" type="tns:NodeInfo" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Nodes that needs to be displayed as part fo the profile. Wild cards are supported.</documentation>
+				</annotation>
+			</element>
+			<element name="NodeGroupInfoList" type="tns:NodeGroupInfo" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>nodeGroup that needs to be displayed as part fo the profile.</documentation>
+				</annotation>
+			</element>
+			<element name="ContainerInfoList" type="tns:ContainerInfo" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Containers that needs to be displayed as part fo the profile. Wild cards are supported.</documentation>
+				</annotation>
+			</element>
+			<element name="ServiceInfoList" type="tns:ServiceInfo" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Services that needs to be displayed as part fo the profile. Wild cards are supported.</documentation>
+				</annotation>
+			</element>
+			<element name="RouteOfferInfoList" type="tns:RouteOfferInfo" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>RouteOffers that needs to be displayed as part fo the profile. Wild cards are supported.</documentation>
+				</annotation>
+			</element>
+			<element name="OperationalInfo" type="tns:OperationalInfo" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="NodeInfo">
+		<sequence>
+			<element name="nodeName" type="string"/>
+		</sequence>
+	</complexType>
+	<complexType name="NodeGroupInfo">
+		<sequence>
+			<element name="nodeGroupName" type="string"/>
+		</sequence>
+	</complexType>
+	<complexType name="ContainerInfo">
+		<sequence>
+			<element name="containerName" type="string"/>
+		</sequence>
+	</complexType>
+	<complexType name="ServiceInfo">
+		<sequence>
+			<element name="serviceName" type="string"/>
+		</sequence>
+	</complexType>
+	<complexType name="RouteOfferInfo">
+		<sequence>
+			<element name="routeOfferName" type="string"/>
+		</sequence>
+	</complexType>
+	<complexType name="UserConfiguration">
+		<sequence>
+			<element name="DefaultProfile" type="tns:Profile" minOccurs="0"/>
+			<element name="OperationalInfo" type="tns:OperationalInfo" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="ManagementGroup">
+		<sequence>
+			<element name="name" type="string"/>
+		</sequence>
+	</complexType>
+	<complexType name="NodeGroup">
+		<sequence>
+			<element name="name" type="string"/>
+		</sequence>
+	</complexType>
+	<complexType name="GeoLocation">
+		<sequence>
+			<element name="name" type="string"/>
+			<element name="latitude" type="double"/>
+			<element name="longitude" type="double"/>
+			<element name="zipcode" type="string"/>
+			<element name="timezone" type="string"/>
+		</sequence>
+	</complexType>
+</schema>

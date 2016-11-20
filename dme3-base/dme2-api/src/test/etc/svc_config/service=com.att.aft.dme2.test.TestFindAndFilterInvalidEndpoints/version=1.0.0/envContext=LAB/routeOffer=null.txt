@@ -1,0 +1,3 @@
+#1400696789451
+#Wed May 21 14:26:29 EDT 2014
+90.136.36.180,2525=latitude\=abs;longitude\=abc;lease\=1400696789450;protocol\=http;contextPath\=/service\=com.att.aft.dme2.test.TestFindAndFilterInvalidEndpoints/version\=1.0.0/envContext\=LAB/routeOffer\=

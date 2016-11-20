@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="java.lang" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5p %c{1} - %m%n"/>
+        </layout>
+    </appender>
+    <logger name="org.eclipse.jetty.io.ManagedSelector">
+        <level value="INFO" />
+    </logger>
+    <logger name="com.att.aft.dme2.iterator.metrics">
+        <level value="WARN" />
+    </logger>
+    <logger name="com.att.aft.dme2.cache">
+        <level value="INFO" />
+    </logger>
+    <logger name="com.att.aft.dme2.event">
+        <level value="WARN" />
+    </logger>
+    <logger name="com.att.aft.dme2.jms">
+        <level value="INFO" />
+    </logger>
+    <logger name="com.att.aft.dme2.jms.DME2JMSContinuationQueue">
+        <level value="DEBUG" />
+    </logger>
+    <logger name="com.att.aft.dme2.jms.DME2JMSQueue">
+        <level value="DEBUG" />
+    </logger>
+    <logger name="com.att.aft.dme2.jms.DME2JMSServlet">
+        <level value="DEBUG" />
+    </logger>
+    <logger name="com.att.aft.dme2.jms.DME2JMSQueueSender">
+        <level value="DEBUG" />
+    </logger>
+    <logger name="com.att.aft.dme2.jms.DME2JMSQueueReceiver">
+        <level value="DEBUG" />
+    </logger>
+    <logger name="com.att.aft.dme2.jms.DME2JMSRemoteQueue">
+        <level value="DEBUG" />
+    </logger>
+    <root>
+        <priority value ="debug" />
+        <appender-ref ref="java.lang" />
+    </root>
+
+</log4j:configuration>

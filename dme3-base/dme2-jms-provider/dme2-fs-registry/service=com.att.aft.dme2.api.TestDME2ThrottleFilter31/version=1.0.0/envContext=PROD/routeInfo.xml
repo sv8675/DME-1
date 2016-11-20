@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+
+<routeInfo serviceName="com.att.aft.dme2.api.TestDME2ThrottleFilter31" serviceVersion="1.0.0" envContext="PROD" xmlns="http://aft.att.com/dme2/types">
+
+	<dataPartitionKeyPath>/x/y/z</dataPartitionKeyPath>
+
+	<dataPartitions>
+   		<dataPartition name="SE" low="205977" high="205999"/>
+   		<dataPartition name="E" low="205444" high="205555"/>
+   		<dataPartition name="ATL" low="404707" high="404707"/>
+   	</dataPartitions>
+
+	<routeGroups>
+		<routeGroup name="APPLE">
+			<partner>APPLE</partner>
+			<route name="DEFAULT">
+				<dataPartitionRef>SE</dataPartitionRef>
+				<dataPartitionRef>E</dataPartitionRef>
+				<dataPartitionRef>ATL</dataPartitionRef>
+				<routeOffer name="APPLE_SE" sequence="7" active="true"/>
+			</route>
+		</routeGroup>
+		<routeGroup name="TEST_ALL_INACTIVE_OFFERS">
+			<partner>TEST_ALL_INACTIVE_OFFERS</partner>
+			<route name="TEST_ALL_INACTIVE_OFFERS">
+				<dataPartitionRef>SE</dataPartitionRef>
+				<dataPartitionRef>E</dataPartitionRef>
+				<dataPartitionRef>ATL</dataPartitionRef>
+				<routeOffer name="APPLE_SE" sequence="7" active="false"/>
+				<routeOffer name="APPLE_SW" sequence="7" active="false"/>
+			</route>
+		</routeGroup>
+		<routeGroup name="WALMART">
+			<partner>WALMART</partner>
+			<route name="SE">
+				<dataPartitionRef>SE</dataPartitionRef>
+				<routeOffer name="WALMART_SE" sequence="1" active="true"/>
+			</route>
+			<route name="E">
+				<dataPartitionRef>E</dataPartitionRef>
+				<routeOffer name="WALMART_E" sequence="2" active="true"/>
+			</route>
+			<route name="ATL">
+				<dataPartitionRef>MW</dataPartitionRef>
+				<routeOffer name="PRIMARY_ATL" sequence="1" active="true"/>
+				<routeOffer name="SECONDARY_ATL" sequence="3" active="true"/>
+			</route>
+         </routeGroup>
+		<routeGroup name="BAU">
+			<partner>*</partner>
+			<route name="SE">
+				<dataPartitionRef>SE</dataPartitionRef>
+				<routeOffer name="BAU_SE" sequence="1" active="true"/>
+			</route>
+			<route name="E">
+				<dataPartitionRef>E</dataPartitionRef>
+				<routeOffer name="PRIMARY_E" sequence="2" active="true"/>
+				<routeOffer name="SECONDARY_E" sequence="1" active="true"/>
+			</route>
+			<route name="ATL">
+				<dataPartitionRef>ATL</dataPartitionRef>
+				<routeOffer name="BAU_ATL" sequence="1" active="true"/>
+			</route>
+         </routeGroup>
+	</routeGroups>
+</routeInfo>

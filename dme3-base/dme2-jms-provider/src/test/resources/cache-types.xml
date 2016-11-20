@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:CacheTypes xmlns:ns2="CacheTypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="CacheTypes.xsd">
+	<!-- 
+	<CacheType name="CacheName">
+	</CacheType>
+	-->
+	<CacheType name="RouteInfoCache">
+		<element_ttl>300000</element_ttl>
+		<refresh_interval>20000</refresh_interval>
+		<failed_refresh_retry_ttls>5000</failed_refresh_retry_ttls>
+		<dataHandler>com.att.aft.dme2.cache.handler.cacheabledata.RouteInfoCacheDataHandler</dataHandler>
+		<persistenceHandler>com.att.aft.dme2.cache.persistence.CacheSerializationToFile</persistenceHandler>
+	</CacheType>
+	<CacheType name="EndpointCache">
+		<element_ttl>300000</element_ttl>
+		<refresh_interval>20000</refresh_interval>
+		<failed_refresh_retry_ttls>5000</failed_refresh_retry_ttls>
+		<idle_timeout>259200000</idle_timeout>
+		<idle_timeout_check_interval>300000</idle_timeout_check_interval>
+		<dataHandler>com.att.aft.dme2.cache.handler.cacheabledata.EndpointCacheDataHandler</dataHandler>
+	</CacheType>
+	<CacheType name="StaleEndpointCache">
+	</CacheType>
+	<CacheType name="StaleRouteOfferCache">
+	</CacheType>
+</ns2:CacheTypes>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+
+<routeInfo serviceName="MyService" serviceVersion="1.0.0" envContext="PROD" xmlns="http://aft.att.com/dme2/schema">
+   <partitionKeyPath>/x/y/z</partitionKeyPath>
+   <partition name="SE" low="205977" high="205999"/>
+   <partition name="E" low="205444" high="205555"/>      
+   <partition name="ATL" low="404707" high="404707"/>     
+   <zone name="BAU_SE">
+       <partitionName>SE</partitionName>
+       <partitionName>E</partitionName>
+       <partnerName>*</partnerName>
+   </zone>
+   <zone name="BAU_ATL">
+   		<partitionName>ATL</partitionName>
+   		<partnerName>*</partnerName>
+   </zone>
+   <zone name="APPLE_SE">
+       <partitionName>SE</partitionName>
+       <partitionName>E</partitionName>
+       <partnerName>APPLE</partnerName>
+   </zone>
+   <zone name="WALMART_SE">
+       <partitionName>SE</partitionName>
+       <partnerName>WALMART</partnerName>
+   </zone>
+   <zone name="WALMART_E">
+       <partitionName>E</partitionName>
+       <partnerName>WALMART</partnerName>
+   </zone>   
+</routeInfo>

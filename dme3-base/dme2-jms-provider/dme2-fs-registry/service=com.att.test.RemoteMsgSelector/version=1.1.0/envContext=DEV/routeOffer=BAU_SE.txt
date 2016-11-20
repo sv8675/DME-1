@@ -1,0 +1,6 @@
+#1477191962837
+#Sat Oct 22 22:06:02 CDT 2016
+ALCDTL43RJ6015.ITServices.sbc.com,49544=latitude\=33.3739;longitude\=-86.7983;lease\=1477184107741;protocol\=http;contextPath\=/service\=com.att.test.RemoteMsgSelector/version\=1.1.0/envContext\=DEV/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+ALCDTL43RJ6015.ITServices.sbc.com,46781=latitude\=33.3739;longitude\=-86.7983;lease\=1477183824036;protocol\=http;contextPath\=/service\=com.att.test.RemoteMsgSelector/version\=1.1.0/envContext\=DEV/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+ALCDTL43RJ6015.ITServices.sbc.com,47320=latitude\=33.3739;longitude\=-86.7983;lease\=1477191962836;protocol\=http;contextPath\=/service\=com.att.test.RemoteMsgSelector/version\=1.1.0/envContext\=DEV/routeOffer\=BAU_SE;routeOffer\=BAU_SE
+ALCDTL43RJ6015.ITServices.sbc.com,47458=latitude\=33.3739;longitude\=-86.7983;lease\=1477191679603;protocol\=http;contextPath\=/service\=com.att.test.RemoteMsgSelector/version\=1.1.0/envContext\=DEV/routeOffer\=BAU_SE;routeOffer\=BAU_SE

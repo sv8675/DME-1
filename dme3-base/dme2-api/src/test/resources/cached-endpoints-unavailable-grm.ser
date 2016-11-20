@@ -1,0 +1,44 @@
+[
+ {
+  "lastAccessedTime":0,
+  "creationTime"    :0,
+  "expirationTime"               :1456188463344,
+  "ttl"             :0,
+  "key": {
+    "key"   : "/service=com.att.aft.DME2CREchoService/version=1.5.0/envContext=LAB/routeOffer=BAU",
+    "string": "/service=com.att.aft.DME2CREchoService/version=1.5.0/envContext=LAB/routeOffer=BAU"
+  },
+  "value":{
+    "value":{
+      "cacheTTL"                     :300000,
+      "lastQueried"                  :1453397468050,
+      "expirationTime"               :1456188463344,
+      "emptyCacheRefreshAttemptCount":-1,
+      "serviceURI"                   :"/service=com.att.aft.DME2CREchoService/version=1.5.0/envContext=LAB/routeOffer=BAU",
+      "endpointList"                 : [
+        {
+          "distance"      :3211.9569977124875,
+          "envContext"    :null,
+          "host"          :"zldv0432.vci.att.com",
+          "latitude"      :37.66,
+          "lease"         :1453040907963,
+          "longitude"     :-122.096839,
+          "path"          :"/service=com.att.aft.DME2CREchoService/version=1.5.0/envContext=LAB/routeOffer=BAU",
+          "contextPath"   :"/service=com.att.aft.DME2CREchoService/version=1.5.0/envContext=LAB/routeOffer=BAU",
+          "port"          :28102,
+          "routeOffer"    :"BAU",
+          "serviceName"   :"/service=com.att.aft.DME2CREchoService/version=1.5.0/envContext=LAB/routeOffer=BAU",
+          "serviceVersion":"1.5.0",
+          "protocol"      :"HTTP",
+          "dme2Version"   :"2.8.3",
+          "supportedVersionRange":null,
+          "endpointProperties":{},
+          "simpleName":"com.att.aft.DME2CREchoService",
+          "cached":false,
+          "dmeUniformResource":null
+        }
+      ]
+    }
+  }
+ }
+]

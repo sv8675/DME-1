@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routeInfo serviceName="com.att.afttest3.ExchangeFailover" serviceVersion="1.0.0" envContext="LAB" xmlns="http://aft.att.com/dme2/types">
+
+<routeGroups>
+		<routeGroup name="FAILOVER">
+			<partner>FO</partner>
+			<route name="DEFAULT">
+				<routeOffer name="FO1" sequence="1" active="true"/>
+				<routeOffer name="FO2" sequence="2" active="true"/>
+				<routeOffer name="FO3" sequence="3" active="true"/>
+			</route>
+		</routeGroup>
+	</routeGroups>
+</routeInfo>

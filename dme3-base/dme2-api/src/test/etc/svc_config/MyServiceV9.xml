@@ -1,0 +1,279 @@
+<routeInfo serviceName="MyServiceV9" serviceVersion="1.0.0" envContext="PROD" xmlns:ns2="http://scld.att.com/grm/RouteInfoMetaData/v1" xmlns="http://aft.att.com/dme2/types">
+  <routeGroups>
+    <routeGroup name="COM_ATT_CSI_M2E_DEFAULT_TEST">
+      <partner>sust</partner>
+      <partner>csitest</partner>
+      <partner>wcsqctest</partner>
+      <route name="TEST-271-SB-P4">
+        <stickySelectorKey>P4</stickySelectorKey>
+        <routeOffer name="P4" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-271-P10">
+        <stickySelectorKey>P10</stickySelectorKey>
+        <routeOffer name="P10" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-271-P51">
+        <stickySelectorKey>P51</stickySelectorKey>
+        <routeOffer name="P51" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ACME-SB-P8">
+        <stickySelectorKey>P8</stickySelectorKey>
+        <routeOffer name="P8" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ACME-SB-P9">
+        <stickySelectorKey>P9</stickySelectorKey>
+        <routeOffer name="P9" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ACME-P6">
+        <stickySelectorKey>P6</stickySelectorKey>
+        <routeOffer name="P6" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ACME-P19">
+        <stickySelectorKey>P19</stickySelectorKey>
+        <routeOffer name="P19" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ACME-P27">
+        <stickySelectorKey>P27</stickySelectorKey>
+        <routeOffer name="P27" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-BAU-SB-P7">
+        <stickySelectorKey>P7</stickySelectorKey>
+        <routeOffer name="P7" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-BAU-SB-P12">
+        <stickySelectorKey>P12</stickySelectorKey>
+        <routeOffer name="P12" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-BAU-SB-P20">
+        <stickySelectorKey>P20</stickySelectorKey>
+        <routeOffer name="P20" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-BAU-SB-P21">
+        <stickySelectorKey>P21</stickySelectorKey>
+        <routeOffer name="P21" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-BAU-P1">
+        <stickySelectorKey>P1</stickySelectorKey>
+        <routeOffer name="P1" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-BAU-P2">
+        <stickySelectorKey>P2</stickySelectorKey>
+        <routeOffer name="P2" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-BAU-P3">
+        <stickySelectorKey>P3</stickySelectorKey>
+        <routeOffer name="P3" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-BAU-P11">
+        <stickySelectorKey>P11</stickySelectorKey>
+        <routeOffer name="P11" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-BAU-P23">
+        <stickySelectorKey>P23</stickySelectorKey>
+        <routeOffer name="P23" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-EASL-LS-SB-P14">
+        <stickySelectorKey>P14</stickySelectorKey>
+        <routeOffer name="P14" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-EASL-LS-SB-P17">
+        <stickySelectorKey>P17</stickySelectorKey>
+        <routeOffer name="P17" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-EASL-P22">
+        <stickySelectorKey>P22</stickySelectorKey>
+        <routeOffer name="P22" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-EASL-P24">
+        <stickySelectorKey>P24</stickySelectorKey>
+        <routeOffer name="P24" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-LS-P15">
+        <stickySelectorKey>P15</stickySelectorKey>
+        <routeOffer name="P15" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-LS-P16">
+        <stickySelectorKey>P16</stickySelectorKey>
+        <routeOffer name="P16" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ONLINE-SB-P13">
+        <stickySelectorKey>P13</stickySelectorKey>
+        <routeOffer name="P13" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ONLINE-SB-P26">
+        <stickySelectorKey>P26</stickySelectorKey>
+        <routeOffer name="P26" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ONLINE-P5">
+        <stickySelectorKey>P5</stickySelectorKey>
+        <routeOffer name="P5" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ONLINE-P18">
+        <stickySelectorKey>P18</stickySelectorKey>
+        <routeOffer name="P18" sequence="1" active="true"/>
+      </route>
+      <route name="TEST-ONLINE-P25">
+        <stickySelectorKey>P25</stickySelectorKey>
+        <routeOffer name="P25" sequence="1" active="true"/>
+      </route>
+    </routeGroup>
+    <routeGroup name="COM_ATT_CSI_M2E_DEFAULT_LIVE">
+      <partner>*</partner>
+      
+      <!-- route name="LIVE-271-P10">
+        <stickySelectorKey>P10</stickySelectorKey>
+        <routeOffer name="P10" sequence="1" active="true"/>
+        <routeOffer name="P51" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-271-P51">
+        <stickySelectorKey>P51</stickySelectorKey>
+        <routeOffer name="P10" sequence="2" active="true"/>
+        <routeOffer name="P51" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-271-SB-P4">
+        <stickySelectorKey>P4</stickySelectorKey>
+        <routeOffer name="P4" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-ACME-P6">
+        <stickySelectorKey>P6</stickySelectorKey>
+        <routeOffer name="P6" sequence="1" active="true"/>
+        <routeOffer name="P19" sequence="2" active="true"/>
+        <routeOffer name="P27" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-ACME-P19">
+        <stickySelectorKey>P19</stickySelectorKey>
+        <routeOffer name="P6" sequence="2" active="true"/>
+        <routeOffer name="P19" sequence="1" active="true"/>
+        <routeOffer name="P27" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-ACME-P27">
+        <stickySelectorKey>P27</stickySelectorKey>
+        <routeOffer name="P6" sequence="1" active="true"/>
+        <routeOffer name="P19" sequence="2" active="true"/>
+        <routeOffer name="P27" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-ACME-SB-P8">
+        <stickySelectorKey>P8</stickySelectorKey>
+        <routeOffer name="P8" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-ACME-SB-P9">
+        <stickySelectorKey>P9</stickySelectorKey>
+        <routeOffer name="P9" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-BAU-P1">
+        <stickySelectorKey>P1</stickySelectorKey>
+        <routeOffer name="P1" sequence="1" active="true"/>
+        <routeOffer name="P2" sequence="2" active="true"/>
+        <routeOffer name="P3" sequence="3" active="true"/>
+        <routeOffer name="P11" sequence="2" active="true"/>
+        <routeOffer name="P23" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-BAU-P2">
+        <stickySelectorKey>P2</stickySelectorKey>
+        <routeOffer name="P1" sequence="2" active="true"/>
+        <routeOffer name="P2" sequence="1" active="true"/>
+        <routeOffer name="P3" sequence="3" active="true"/>
+        <routeOffer name="P11" sequence="2" active="true"/>
+        <routeOffer name="P23" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-BAU-P3">
+        <stickySelectorKey>P3</stickySelectorKey>
+        <routeOffer name="P1" sequence="3" active="true"/>
+        <routeOffer name="P2" sequence="2" active="true"/>
+        <routeOffer name="P3" sequence="1" active="true"/>
+        <routeOffer name="P11" sequence="2" active="true"/>
+        <routeOffer name="P23" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-BAU-P11">
+        <stickySelectorKey>P11</stickySelectorKey>
+        <routeOffer name="P1" sequence="2" active="true"/>
+        <routeOffer name="P2" sequence="2" active="true"/>
+        <routeOffer name="P3" sequence="3" active="true"/>
+        <routeOffer name="P11" sequence="1" active="true"/>
+        <routeOffer name="P23" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-BAU-P23">
+        <stickySelectorKey>P23</stickySelectorKey>
+        <routeOffer name="P1" sequence="2" active="true"/>
+        <routeOffer name="P2" sequence="2" active="true"/>
+        <routeOffer name="P3" sequence="3" active="true"/>
+        <routeOffer name="P11" sequence="2" active="true"/>
+        <routeOffer name="P23" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-BAU-SB-P7">
+        <stickySelectorKey>P7</stickySelectorKey>
+        <routeOffer name="P7" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-BAU-SB-P12">
+        <stickySelectorKey>P12</stickySelectorKey>
+        <routeOffer name="P12" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-BAU-SB-P20">
+        <stickySelectorKey>P20</stickySelectorKey>
+        <routeOffer name="P20" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-BAU-SB-P21">
+        <stickySelectorKey>P21</stickySelectorKey>
+        <routeOffer name="P21" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-EASL-P22">
+        <stickySelectorKey>P22</stickySelectorKey>
+        <routeOffer name="P22" sequence="1" active="true"/>
+        <routeOffer name="P24" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-EASL-P24">
+        <stickySelectorKey>P24</stickySelectorKey>
+        <routeOffer name="P22" sequence="2" active="true"/>
+        <routeOffer name="P24" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-EASL-LS-SB-P14">
+        <stickySelectorKey>P14</stickySelectorKey>
+        <routeOffer name="P14" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-EASL-LS-SB-P17">
+        <stickySelectorKey>P17</stickySelectorKey>
+        <routeOffer name="P17" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-LS-P15">
+        <stickySelectorKey>P15</stickySelectorKey>
+        <routeOffer name="P15" sequence="1" active="true"/>
+        <routeOffer name="P16" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-LS-P16">
+        <stickySelectorKey>P16</stickySelectorKey>
+        <routeOffer name="P15" sequence="2" active="true"/>
+        <routeOffer name="P16" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-ONLINE-P5">
+        <stickySelectorKey>P5</stickySelectorKey>
+        <routeOffer name="P5" sequence="1" active="true"/>
+        <routeOffer name="P18" sequence="2" active="true"/>
+        <routeOffer name="P25" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-ONLINE-P18">
+        <stickySelectorKey>P18</stickySelectorKey>
+        <routeOffer name="P5" sequence="2" active="true"/>
+        <routeOffer name="P18" sequence="1" active="true"/>
+        <routeOffer name="P25" sequence="2" active="true"/>
+      </route-->
+      <route name="LIVE-ONLINE-P25">
+        <stickySelectorKey>P25</stickySelectorKey>
+        <routeOffer name="P5" sequence="2" active="true"/>
+        <routeOffer name="P18" sequence="2" active="true"/>
+        <routeOffer name="P23" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-ONLINE-SB-P13">
+        <stickySelectorKey>P13</stickySelectorKey>
+        <routeOffer name="P13" sequence="1" active="true"/>
+      </route>
+      <route name="LIVE-ONLINE-SB-P26">
+        <stickySelectorKey>P26</stickySelectorKey>
+        <routeOffer name="P26" sequence="1" active="true"/>
+         <routeOffer name="P27" sequence="2" active="true"/>
+      </route>
+      <route name="LIVE-ONLINE-SB-P26">
+         <routeOffer name="ROUTE_WITH_NO_STICKY" sequence="1" active="true"/>
+      </route>
+    </routeGroup>
+  </routeGroups>
+</routeInfo>

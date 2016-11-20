@@ -1,0 +1,12 @@
+#
+#Wed Oct 26 11:57:28 CDT 2016
+TXCDTL01ab850e.ITServices.sbc.com,64493=latitude\=33.3739;longitude\=-86.7983;lease\=1451946724339;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE
+TXCDTL01ab850e.ITServices.sbc.com,51928=latitude\=33.3739;longitude\=-86.7983;lease\=1451947508422;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE
+TXCDTL01ab850e.ITServices.sbc.com,49206=latitude\=33.3739;longitude\=-86.7983;lease\=1451944975839;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE
+TXCDTL01ab850e.ITServices.sbc.com,62805=latitude\=33.3739;longitude\=-86.7983;lease\=1451946556460;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE
+TXCDTL01ab850e.ITServices.sbc.com,65307=latitude\=33.3739;longitude\=-86.7983;lease\=1451942974670;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE
+TXCDTL01ab850e.ITServices.sbc.com,50320=latitude\=33.3739;longitude\=-86.7983;lease\=1451947541996;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE
+TXCDTL01ab850e.ITServices.sbc.com,57583=latitude\=33.3739;longitude\=-86.7983;lease\=1451947160069;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE
+TXCDTL01ab850e.ITServices.sbc.com,51568=latitude\=33.3739;longitude\=-86.7983;lease\=1451946819482;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE
+TXCDTL01ab850e.ITServices.sbc.com,62850=latitude\=33.3739;longitude\=-86.7983;lease\=1451946572767;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE
+TXCDTL01ab850e.ITServices.sbc.com,62877=latitude\=33.3739;longitude\=-86.7983;lease\=1451946678796;protocol\=http;contextPath\=service\=MyService/version\=1.0.0/envContext\=PROD/routeOffer\=WALMART_SE;routeOffer\=WALMART_SE

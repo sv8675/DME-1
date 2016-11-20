@@ -1,0 +1,2506 @@
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://scld.att.com/grm/v1"
+	xmlns:tns="http://scld.att.com/grm/types/v1" 	
+	xmlns:grm_commontypes="http://scld.att.com/grm/types/v1"
+	xmlns:grm_tms="http://scld.att.com/grm/tms/v1"
+	xmlns:grm_policy="http://scld.att.com/grm/policy/v1"
+	elementFormDefault="qualified" >
+
+	<import schemaLocation="grm_commontypes.xsd" namespace="http://scld.att.com/grm/types/v1" />
+	<import schemaLocation="grm_serviceAvailability.xsd" namespace="http://scld.att.com/grm/tms/v1" />
+	<import schemaLocation="grm_policy.xsd" namespace="http://scld.att.com/grm/policy/v1" />
+
+	<element name="GRMExceptionDetails">
+		<complexType>
+			<sequence>
+				<element name="code" type="string" />
+				<element name="message" type="string" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<!--
+		######################################################################
+	-->
+	<!-- ## Container request/response. -->
+	<!--
+		######################################################################
+	-->
+	<element name="addContainerDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addContainerDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateContainerDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateContainerDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteContainerDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteContainerDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- name * expression -->
+	<element name="findAllContainerDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext" />
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findAllContainerDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="containerDefinitionList" type="grm_commontypes:ContainerDefinition" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- name * expression -->
+	<element name="findContainerDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findContainerDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="containerDefinitionList" type="grm_commontypes:ContainerDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<!--
+		Do you add the associations while adding the container instance??
+	-->
+	<element name="addContainerVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="serviceVersionDefinitionList" type="grm_commontypes:ServiceVersionDefinition"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="lrmList" type="grm_commontypes:LRM"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addContainerVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateContainerVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="notifListOperationType" type="grm_commontypes:AssociationOperation" />
+						<element name="notifListOverrideOperationType" type="grm_commontypes:AssociationOperation" />
+						<element name="clearMemoryUsageWeight" type="boolean" minOccurs="0" maxOccurs="1"/>
+						<element name="clearCPUUsageWeight" type="boolean" minOccurs="0" maxOccurs="1"/>
+						<element name="clearResourceContentionLevel" type="boolean" minOccurs="0" maxOccurs="1"/>
+						<element name="clearMemoryUsageWeightOverride" type="boolean" minOccurs="0" maxOccurs="1"/>
+						<element name="clearCPUUsageWeightOverride" type="boolean" minOccurs="0" maxOccurs="1"/>
+						<element name="clearResourceContentionLevelOverride" type="boolean" minOccurs="0" maxOccurs="1"/>
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateContainerVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteContainerVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteContainerVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="applyContainerVersionDefinitionAssociationRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="serviceVersionDefinitionList" type="grm_commontypes:ServiceVersionDefinition"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="lrmList" type="grm_commontypes:LRM"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="associationOperation" type="grm_commontypes:AssociationOperation" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="applyContainerVersionDefinitionAssociationResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<!--
+		name should support * expression. If patchVersion is not specified, we
+		should get every thing.
+	-->
+	<!--
+		If you dont want to search by version pass -1 in major and -1 in
+		minor.
+	-->
+	<element name="findContainerVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" />
+						<element name="version" type="grm_commontypes:VersionDefinition" />
+						<element name="routeOffer" type="string" />
+						<element name="lrmHostAddress" type="string" />
+						<element name="lrmListenPort" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findContainerVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="containerVersionDefinitionList" type="grm_commontypes:ContainerVersionDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findContainerVersionDefinitionByCDRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findContainerVersionDefinitionByCDResponse">
+		<complexType>
+			<sequence>
+				<element name="containerVersionDefinitionList" type="grm_commontypes:ContainerVersionDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findAllContainerVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findAllContainerVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="containerVersionDefinitionList" type="grm_commontypes:ContainerVersionDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findContainerVersionDefinitionByRORequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="routeOfferList" type="string" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findContainerVersionDefinitionByROResponse">
+		<complexType>
+			<sequence>
+				<element name="containerVersionDefinitionList" type="grm_commontypes:ContainerVersionDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!--
+		Do you add the associations while adding the container instance??
+	-->
+	<element name="addContainerInstanceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="containerInstance" type="grm_commontypes:ContainerInstance" />
+						<element name="lrm" type="grm_commontypes:LRM" />
+						<element name="serviceEndPointList" type="grm_commontypes:ServiceEndPoint"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addContainerInstanceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateContainerInstanceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerInstance" type="grm_commontypes:ContainerInstance" />
+						<element name="updateLease" type="boolean" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateContainerInstanceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteContainerInstanceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerInstance" type="grm_commontypes:ContainerInstance" minOccurs="1" maxOccurs="unbounded"/>
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteContainerInstanceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<!-- if both containerName and serviceName are passed in containerName takes precedence and serviceName is ignored. -->
+	<element name="findContainerInstanceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" />
+						<element name="version" type="grm_commontypes:VersionDefinition" />
+						<element name="lrmHostAddress" type="string" />
+						<element name="routeOffer" type="string" />
+						<element name="serviceName" type="string" />
+						<element name="serviceVersion" type="grm_commontypes:VersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findContainerInstanceResponse">
+		<complexType>
+			<sequence>
+				<element name="containerInstanceList" type="grm_commontypes:ContainerInstance" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- *** if lrmList is null, it just retrieves by CVD. -->
+	<element name="findContainerInstanceByCVDRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="lrmList" type="grm_commontypes:LRM"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findContainerInstanceByCVDResponse">
+		<complexType>
+			<sequence>
+				<element name="containerInstanceList" type="grm_commontypes:ContainerInstance"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findContainerInstanceBySVDRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="lrm" type="grm_commontypes:LRM" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findContainerInstanceBySVDResponse">
+		<complexType>
+			<sequence>
+				<element name="containerInstanceList" type="grm_commontypes:ContainerInstance"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findContainerInstanceByLRMRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="lrm" type="grm_commontypes:LRM" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findContainerInstanceByLRMResponse">
+		<complexType>
+			<sequence>
+				<element name="containerInstanceList" type="grm_commontypes:ContainerInstance"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- cvd is an optional input. -->
+	<element name="findContainerInstanceByRORequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="routeOffer" type="string" />
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findContainerInstanceByROResponse">
+		<complexType>
+			<sequence>
+				<element name="containerInstanceList" type="grm_commontypes:ContainerInstance"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!--
+		######################################################################
+	-->
+	<!-- ## LRM request/response. -->
+	<!--
+		######################################################################
+	-->
+	<element name="addNodeRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="node" type="grm_commontypes:Node" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addNodeResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateNodeRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="node" type="grm_commontypes:Node" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateNodeResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>	
+	<element name="deleteNodeRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="node" type="grm_commontypes:Node" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteNodeResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findAllNodeRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findAllNodeResponse">
+		<complexType>
+			<sequence>
+				<element name="nodeList" type="grm_commontypes:Node"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- hostAddress should support * expression -->
+	<element name="findNodeRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="hostAddress" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findNodeResponse">
+		<complexType>
+			<sequence>
+				<element name="nodeList" type="grm_commontypes:Node"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addLRMRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="node" type="grm_commontypes:Node" />
+						<element name="lrm" type="grm_commontypes:LRM" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addLRMResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateLRMRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="lrm" type="grm_commontypes:LRM" />
+						<element name="removeExpTime" type="boolean" />
+						<element name="removeRegTime" type="boolean" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateLRMResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteLRMRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="lrm" type="grm_commontypes:LRM" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteLRMResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findLRMRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="hostAddress" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findLRMResponse">
+		<complexType>
+			<sequence>
+				<element name="lrm" type="grm_commontypes:LRM" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findLRMByNodeRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="hostAddress" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findLRMByNodeResponse">
+		<complexType>
+			<sequence>
+				<element name="lrmList" type="grm_commontypes:LRM" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findAllLRMRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findAllLRMResponse">
+		<complexType>
+			<sequence>
+				<element name="lrmList" type="grm_commontypes:LRM"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findLRMBySVDRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findLRMBySVDResponse">
+		<complexType>
+			<sequence>
+				<element name="lrmList" type="grm_commontypes:LRM"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findLRMByCVDRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findLRMByCVDResponse">
+		<complexType>
+			<sequence>
+				<element name="lrmList" type="grm_commontypes:LRM"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addManagedResourceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="lrm" type="grm_commontypes:LRM" />
+						<element name="managedResource" type="grm_commontypes:ManagedResource" />
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addManagedResourceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="upgradeManagedResourceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="managedResource" type="grm_commontypes:ManagedResource" />
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="upgradeManagedResourceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addRUpgradeRModifyManagedResourceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="managedResource" type="grm_commontypes:ManagedResource" />
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addRUpgradeRModifyManagedResourceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateManagedResourceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="managedResource" type="grm_commontypes:ManagedResource" />
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" minOccurs="0" maxOccurs="unbounded" />		
+						<element name="updateAllClones" type="boolean" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateManagedResourceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteManagedResourceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="managedResource" type="grm_commontypes:ManagedResource" />
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" minOccurs="0" maxOccurs="unbounded" />	
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteManagedResourceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findManagedResourceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" />
+						<element name="version" type="grm_commontypes:VersionDefinition" />
+						<element name="routeOffer" type="string" />
+						<element name="lrmHostAddress" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findManagedResourceResponse">
+		<complexType>
+			<sequence>
+				<element name="managedResource" type="grm_commontypes:ManagedResource" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!--
+		######################################################################
+	-->
+	<!-- ## Service request/response. -->
+	<!--
+		######################################################################
+	-->
+
+	<element name="addServiceDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addServiceDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateServiceDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateServiceDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteServiceDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteServiceDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findAllServiceDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findAllServiceDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="serviceDefinitionList" type="grm_commontypes:ServiceDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- name should support * expression -->
+	<element name="findServiceDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="serviceDefinitionList" type="grm_commontypes:ServiceDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addServiceVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="containerVersionDefinitionList" type="grm_commontypes:ContainerVersionDefinition"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="lrmList" type="grm_commontypes:LRM"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addServiceVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateServiceVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateServiceVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteServiceVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteServiceVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="applyServiceVersionDefinitionAssociationRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="containerVersionDefinitionList" type="grm_commontypes:ContainerVersionDefinition"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="lrmList" type="grm_commontypes:LRM"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="associationOperation" type="grm_commontypes:AssociationOperation" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="applyServiceVersionDefinitionAssociationResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<!--
+		name should support * expression. If patchVersion is not specified, we
+		should get every thing.
+	-->
+	<!--
+		*** double check if the lrmHostAddress and lrmListenPort will work
+	-->
+	<element name="findServiceVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" />
+						<element name="version" type="grm_commontypes:VersionDefinition" />
+						<element name="lrmHostAddress" type="string" />
+						<element name="lrmListenPort" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="serviceVersionDefinitionList" type="grm_commontypes:ServiceVersionDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findAllServiceVersionDefinitionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findAllServiceVersionDefinitionResponse">
+		<complexType>
+			<sequence>
+				<element name="serviceVersionDefinitionList" type="grm_commontypes:ServiceVersionDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findServiceVersionDefinitionBySDRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceVersionDefinitionBySDResponse">
+		<complexType>
+			<sequence>
+				<element name="serviceVersionDefinitionList" type="grm_commontypes:ServiceVersionDefinition"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- Do you add the associations while adding the ServiceEndPoint?? -->
+	<element name="addServiceEndPointRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="serviceEndPoint" type="grm_commontypes:ServiceEndPoint" />
+						<element name="lrmRef" type="grm_commontypes:LRM" />
+						<element name="containerInstanceRef" type="grm_commontypes:ContainerInstance" />
+						<element name="checkNcreateParents" type="boolean" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addServiceEndPointResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateServiceEndPointRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceEndPoint" type="grm_commontypes:ServiceEndPoint" />
+						<element name="lrmRef" type="grm_commontypes:LRM" />
+						<element name="containerInstanceRef" type="grm_commontypes:ContainerInstance" />
+						<element name="updateLease" type="boolean" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateServiceEndPointResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteServiceEndPointRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceEndPoint" type="grm_commontypes:ServiceEndPoint" minOccurs="1" maxOccurs="unbounded"/>
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteServiceEndPointResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" />
+						<element name="version" type="grm_commontypes:VersionDefinition" />
+						<element name="routeOffer" type="string" />
+						<element name="lrmHostAddress" type="string" />
+						<element name="containerName" type="string" />
+						<element name="contianerVersion" type="grm_commontypes:VersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointResponse">
+		<complexType>
+			<sequence>
+				<element name="serviceEndPointList" type="grm_commontypes:ServiceEndPoint" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- *** if lrmList is null, it just retrieves by CVD. -->
+	<element name="findServiceEndPointByCVDRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="lrmList" type="grm_commontypes:LRM"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointByCVDResponse">
+		<complexType>
+			<sequence>
+				<element name="serviceEndPointList" type="grm_commontypes:ServiceEndPoint"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- *** if routeOffer, status is null, it just retrieves by CVD. -->
+	<element name="findServiceEndPointBySEPStatusRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+						<element name="routeOfferList" type="string" minOccurs="0" maxOccurs="unbounded" />
+						<element name="status" type="string" minOccurs="0" maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointBySEPStatusResponse">
+		<complexType>
+			<sequence>
+				<element name="serviceEndPointList" type="grm_commontypes:ServiceEndPoint"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointBySVDRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="lrm" type="grm_commontypes:LRM" />
+						<element name="retrieveRunningEpsOnly" type="boolean" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointBySVDResponse">
+		<complexType>
+			<sequence>
+				<element name="ServiceEndPointList" type="grm_commontypes:ServiceEndPoint"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<!-- this filters only by sep's name, version, hostAddress, listenPort, routeOffer. -->
+	<element name="findRunningServiceEndPointRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceEndPoint" type="grm_commontypes:ServiceEndPoint" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findRunningServiceEndPointResponse">
+		<complexType>
+			<sequence>
+				<element name="ServiceEndPointList" type="grm_commontypes:ServiceEndPoint" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointByCIRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerInstanceList" type="grm_commontypes:ContainerInstance"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointByCIResponse">
+		<complexType>
+			<sequence>
+				<element name="ServiceEndPointList" type="grm_commontypes:ServiceEndPoint"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointByLRMRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="lrm" type="grm_commontypes:LRM" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointByLRMResponse">
+		<complexType>
+			<sequence>
+				<element name="ServiceEndPointList" type="grm_commontypes:ServiceEndPoint"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- cvd is optional. -->
+	<element name="findServiceEndPointByRORequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="routeOffer" type="string" />
+						<element name="containerVersionDefinition" type="grm_commontypes:ContainerVersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findServiceEndPointByROResponse">
+		<complexType>
+			<sequence>
+				<element name="serviceEndPointList" type="grm_commontypes:ServiceEndPoint"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- ###################################################################### -->
+	<!-- ## Route Offer request/response. -->
+	<!-- ###################################################################### -->
+	<element name="getAllRouteOffersRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getAllRouteOffersResponse">
+		<complexType>
+			<sequence>
+				<element name="routeOfferList" type="string"  minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getRouteOffersRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="routeOffer" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getRouteOffersResponse">
+		<complexType>
+			<sequence>
+				<element name="routeOfferList" type="string"  minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="cloneContainerConfigRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="exisContainerName" type="string" />
+						<element name="exisContainerVersion" type="grm_commontypes:VersionDefinition" />
+						<element name="exisContainerRouteOffer" type="string" />
+						<element name="exisLRMHostAddress" type="string" />
+						<element name="newRouteOffer" type="string" />
+						<element name="newMin" type="int" />
+						<element name="newMax" type="int" />
+						<element name="newLRMHostAddress" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="cloneContainerConfigResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- ###################################################################### -->
+	<!-- ## Route Info request/response. -->
+	<!-- ###################################################################### -->
+	<!--
+		In all the routeInfo request objects, if sd and svd both passed in,
+		svd is taken in to consideration.
+	-->
+	<element name="getRouteInfoRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getRouteInfoResponse">
+		<complexType>
+			<sequence>
+				<element name="routeInfoXml" type="string" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="lockRouteInfoForEditRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="userId" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="lockRouteInfoForEditResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="validateRouteInfoRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="routeInfoXml" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="validateRouteInfoResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveNReleaseRouteInfoRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="routeInfoXml" type="string" />
+						<element name="userId" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="saveNReleaseRouteInfoResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveRouteInfoRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="routeInfoXml" type="string" />
+						<element name="userId" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="saveRouteInfoResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="releaseRouteInfoRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceDefinition" type="grm_commontypes:ServiceDefinition" />
+						<element name="serviceVersionDefinition" type="grm_commontypes:ServiceVersionDefinition" />
+						<element name="userId" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="releaseRouteInfoResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<!--
+		######################################################################
+	-->
+	<!-- ## Action request/response. -->
+	<!--
+		######################################################################
+	-->
+	<element name="findActionsRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="trackingId" type="string" minOccurs="0"
+							maxOccurs="unbounded" />
+						<element name="status" type="grm_commontypes:ActionStatus"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="submittedBy" type="string" minOccurs="0"
+							maxOccurs="unbounded" />
+						<element name="actionOperation" type="string" minOccurs="0"
+							maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="findActionsResponse">
+		<complexType>
+			<sequence>
+				<element name="actionList" type="grm_commontypes:Action"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<!--
+		######################################################################
+	-->
+	<!-- ## MMT function request/response. -->
+	<!--
+		######################################################################
+	-->
+	<element name="checkLRMHeartBeatRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="lrmList" type="grm_commontypes:LRM"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="checkLRMHeartBeatResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="checkLRMHeartBeatNowRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="lrm" type="grm_commontypes:LRM" minOccurs="1"
+							maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="checkLRMHeartBeatNowResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getLRMStatisticsRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="lrmList" type="grm_commontypes:LRM"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="getLRMStatisticsResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="dumpLRMRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="lrm" type="grm_commontypes:LRM" minOccurs="0"
+							maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="dumpLRMResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="startContainerRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerActionRequestList" type="grm_commontypes:ContainerActionRequest"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="startContainerResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="shutdownContainerRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerActionRequestList" type="grm_commontypes:ContainerActionRequest"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="shutdownContainerResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="killContainerRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerActionRequestList" type="grm_commontypes:ContainerActionRequest"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="killContainerResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="checkContainerHeartBeatRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerActionRequestList" type="grm_commontypes:ContainerActionRequest"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="checkContainerHeartBeatResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="checkContainerHeartBeatNowRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerInstance" type="grm_commontypes:ContainerInstance"
+							minOccurs="1" maxOccurs="1" />
+						<element name="lrm" type="grm_commontypes:LRM" minOccurs="1"
+							maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="checkContainerHeartBeatNowResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getContainerStatisticsRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerActionRequestList" type="grm_commontypes:ContainerActionRequest"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="getContainerStatisticsResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getContainerDiagnosticsRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerActionRequestList" type="grm_commontypes:ContainerActionRequest"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="getContainerDiagnosticsResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="dumpContainerRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerInstance" type="grm_commontypes:ContainerInstance"
+							minOccurs="0" maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="dumpContainerResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="checkServiceHeartBeatRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceEndPointList" type="grm_commontypes:ServiceEndPoint" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="checkServiceHeartBeatResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="checkServiceHeartBeatNowRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="serviceEndPointList" type="grm_commontypes:ServiceEndPoint" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!-- result will contain trackingId as the name/value pair -->
+	<element name="checkServiceHeartBeatNowResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>	
+	<element name="getValidEnvRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext" />
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getValidEnvResponse">
+		<complexType>
+			<sequence>
+				<element name="platform" type="string" minOccurs="1"
+					maxOccurs="1" />
+				<element name="env" type="string" minOccurs="1" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addIPAddressRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" minOccurs="1" maxOccurs="1" />
+						<element name="ipAddressAllowed" type="string" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addIPAddressResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteIPAddressRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" minOccurs="1" maxOccurs="1" />
+						<element name="ipAddressAllowed" type="string" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteIPAddressResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveIPAddressRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" minOccurs="1" maxOccurs="1" />
+						<element name="ipAddressAllowed" type="string" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="saveIPAddressResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getIPAddressRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getIPAddressResponse">
+		<complexType>
+			<sequence>
+				<element name="ipAddressAllowed" type="string" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getAvailabilityRulesRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" minOccurs="0" maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getAvailabilityRulesResponse">
+		<complexType>
+			<sequence>
+				<element name="availabilityRules" type="grm_tms:AvailabilityRulesType" minOccurs="0" maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveAvailabilityRulesRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerDefinition" type="grm_commontypes:ContainerDefinition" minOccurs="0" maxOccurs="1" />
+						<element name="availabilityRules" type="grm_tms:AvailabilityRulesType" minOccurs="0" maxOccurs="1" />
+						<element name="userId" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="saveAvailabilityRulesResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getLoggingLevelRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerInstanceList" type="grm_commontypes:ContainerInstance" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getLoggingLevelResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateLoggingLevelRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerInstanceList" type="grm_commontypes:ContainerInstance" minOccurs="0" maxOccurs="unbounded" />
+						<element name="loggingLevel" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateLoggingLevelResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<!-- ###################################################################### -->
+	<!-- ## Profile request/response. -->
+	<!-- ###################################################################### -->
+	<element name="getProfilesRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext" />
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getProfilesResponse">
+		<complexType>
+			<sequence>
+				<element name="Profile" type="grm_commontypes:Profile"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getUpdatableProfilesRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext" />
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getUpdatableProfilesResponse">
+		<complexType>
+			<sequence>
+				<element name="Profile" type="grm_commontypes:Profile"
+					minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addProfileRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="Profile" type="grm_commontypes:Profile" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addProfileResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateProfileRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="operationType" type="grm_commontypes:AssociationOperation" />
+						<element name="Profile" type="grm_commontypes:Profile" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateProfileResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteProfileRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="Profile" type="grm_commontypes:Profile" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteProfileResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getUsersAdminMgtGrpsRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="userId" type="string" minOccurs="0" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getUsersAdminMgtGrpsResponse">
+		<complexType>
+			<sequence>
+				<element name="managementGroup" type="grm_commontypes:ManagementGroup" minOccurs="0"
+					maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getNodeGroupsRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" minOccurs="0" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getNodeGroupsResponse">
+		<complexType>
+			<sequence>
+				<element name="nodeGroup" type="grm_commontypes:NodeGroup" minOccurs="0"
+					maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getUserConfigurationRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext" />
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getUserConfigurationResponse">
+		<complexType>
+			<sequence>
+				<element name="UserConfiguration" type="grm_commontypes:UserConfiguration" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="updateUserConfigurationRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="UserConfiguration" type="grm_commontypes:UserConfiguration" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="updateUserConfigurationResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	
+	<!-- ###################################################################### -->
+	<!-- ## Policy request/response. -->
+	<!-- ###################################################################### -->
+	<element name="addPolicyRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="subject" type="string" />
+						<element name="subjectType" type="grm_policy:SubjectType" />
+						<element name="policy" type="grm_policy:Policy" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<element name="addPolicyResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>		
+
+	<element name="updatePolicyRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="subject" type="string" />
+						<element name="subjectType" type="grm_policy:SubjectType" />
+						<element name="policy" type="grm_policy:Policy" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<element name="updatePolicyResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>			
+	
+	<element name="deletePolicyRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="subject" type="string" />
+						<element name="subjectType" type="grm_policy:SubjectType" />
+						<element name="policyName" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<element name="deletePolicyResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>		
+	
+	<element name="getPoliciesRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerName" type="string" />
+						<element name="containerVersion" type="grm_commontypes:VersionDefinition" />
+						<element name="serviceName" type="string" />
+						<element name="serviceVersion" type="grm_commontypes:VersionDefinition" />
+						<element name="routeOffer" type="string" />
+						<element name="policyName" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<element name="getPoliciesResponse">
+		<complexType>
+			<sequence>
+				<element name="policyList" type="grm_policy:Policy" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>		
+	
+	<element name="processResourceContentionRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerName" type="string" minOccurs="1" maxOccurs="1" />
+						<element name="containerVersion" type="grm_commontypes:VersionDefinition" minOccurs="1" maxOccurs="1" />
+						<element name="routeOffer" type="string" minOccurs="1" maxOccurs="1" />
+						<element name="numberOfInstances" type="int" minOccurs="1" maxOccurs="1" />
+						<element name="nodeName" type="string" minOccurs="1" maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<element name="processResourceContentionResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>	
+	
+	<element name="getGeoLocationsRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext" />
+			</complexContent>
+		</complexType>
+	</element>
+	
+	<element name="getGeoLocationsResponse">
+		<complexType>
+			<sequence>
+				<element name="GeoLocation" type="grm_commontypes:GeoLocation" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="getGeoLocationNodesRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="geoLocationName" type="string" minOccurs="1" maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	
+	<element name="getGeoLocationNodesResponse">
+		<complexType>
+			<sequence>
+				<element name="nodeName" type="string" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="processScaleUpRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerName" type="string" minOccurs="1" maxOccurs="1" />
+						<element name="containerVersion" type="grm_commontypes:VersionDefinition" minOccurs="1" maxOccurs="1" />
+						<element name="routeOffer" type="string" minOccurs="1" maxOccurs="1" />
+						<element name="policy" type="grm_policy:Policy" minOccurs="1" maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<element name="processScaleUpResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>		
+	
+	<element name="processScaleDownRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="containerName" type="string" minOccurs="1" maxOccurs="1" />
+						<element name="containerVersion" type="grm_commontypes:VersionDefinition" minOccurs="1" maxOccurs="1" />
+						<element name="routeOffer" type="string" minOccurs="1" maxOccurs="1" />
+						<element name="policy" type="grm_policy:Policy" minOccurs="1" maxOccurs="1" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<element name="processScaleDownResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>	
+	
+	<element name="addNamespaceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string"/>
+						<element name="ownerGrp" type="string"/>
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addNamespaceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getNamespacesRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" minOccurs="0"/>
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="getNamespacesResponse">
+		<complexType>
+			<sequence>
+				<element name="name" type="string" minOccurs="0" maxOccurs="unbounded"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteNamespaceRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="name" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteNamespaceResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addEnvironmentRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="environment" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="addEnvironmentResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteEnvironmentRequest">
+		<complexType>
+			<complexContent>
+				<extension base="grm_commontypes:RequestContext">
+					<sequence>
+						<element name="environment" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="deleteEnvironmentResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="grm_commontypes:Result" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	<!-- ###################################################################### -->
+    <!-- ## Client JVM Instance request/response.  SCLD-4708 -->
+    <!-- ###################################################################### -->
+    
+    <element name="registerClientJVMInstanceRequest">
+        <complexType>
+            <complexContent>
+                <extension base="grm_commontypes:RequestContext">
+                    <sequence>
+                        <element name="clientJvmInstance" type="grm_commontypes:ClientJVMInstance">
+                            <annotation>
+                                <documentation>Expiration time must be set by the client unless the GRM default offset is acceptable.  Registration and deregistration time is set by GRM.</documentation>
+                            </annotation>
+                        </element>
+                        <element name="action" type="grm_commontypes:ClientJVMAction" />
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
+    </element>
+    <element name="registerClientJVMInstanceResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="grm_commontypes:Result" />
+            </sequence>
+        </complexType>
+    </element>
+    
+    <!-- hostAddress or mechId is required -->
+    <element name="findClientJVMInstanceRequest">
+        <complexType>
+            <complexContent>
+                <extension base="grm_commontypes:RequestContext">
+                    <sequence>
+                        <element name="hostAddress" type="string" minOccurs="0" maxOccurs="1">
+                            <annotation>
+                                <documentation>At least hostAddress or mechId is required.</documentation>
+                            </annotation>
+                        </element>
+                        <element name="processId" type="string" minOccurs="0" maxOccurs="1" />
+                        <element name="mechId" type="string" minOccurs="0" maxOccurs="1">
+                            <annotation>
+                                <documentation>At least hostAddress or mechId is required.</documentation>
+                            </annotation>
+                        </element>
+                        <element name="activeOnly" type="boolean" minOccurs="0" maxOccurs="1" default="false" />
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
+    </element>
+    <element name="findClientJVMInstanceResponse">
+        <complexType>
+            <sequence>
+                <element name="clientJVMInstanceList" type="grm_commontypes:ClientJVMInstance"
+                    minOccurs="0" maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+    </element>
+	
+</schema>

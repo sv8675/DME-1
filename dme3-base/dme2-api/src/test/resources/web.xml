@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+    Copyright (c) 2016 AT&T Intellectual Property. All rights reserved.
+ -->
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+	<display-name>DME2ServletWrapperTest</display-name>
+
+	<servlet>
+		<servlet-name>DME2SimpleServlet</servlet-name>
+		<servlet-class>com.att.aft.dme2.iterator.test.servlet.DME2SimpleServlet</servlet-class>
+		<load-on-startup>1</load-on-startup> 
+	</servlet>
+	
+	<servlet>
+		<servlet-name>DME2ServletWrapper</servlet-name>
+		<servlet-class>com.att.aft.dme2.api.DME2ServletWrapper</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DME2SimpleServlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DME2ServletWrapper</servlet-name>
+		<url-pattern>/servletwrapper</url-pattern>
+	</servlet-mapping>
+
+</web-app> 
